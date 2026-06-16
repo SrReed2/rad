@@ -26,4 +26,14 @@
         on-failure: Reinicia el contenedor solo si falla.
         on-failure:<n>: Reinicia el contenedor solo si falla n veces.
 
+##alembic
+# 1. Inicializar Alembic
+alembic init migrations
 
+# 2. Crear primera migración
+alembic revision --autogenerate -m "create users table"
+
+# 3. Aplicar migración
+alembic upgrade head
+
+# siempre usar docker compose exec backend 'command'
