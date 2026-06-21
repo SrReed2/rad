@@ -1,54 +1,137 @@
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+import StatCard from "../../components/StatCard";
 import AttendanceChart from "../../components/AttendanceChart";
-import RiskCard from "../../components/RiskCard";
+import RiskChart from "../../components/RiskChart";
+import StudentTable from "../../components/StudentTable";
+
+import { stats } from "../../data/mockData";
 
 export default function DashboardPage() {
   return (
-    <div className="flex bg-[#1A1A1F] min-h-screen">
-
+    <div className="flex min-h-screen bg-[#1A1A1F]">
       <Sidebar />
 
       <div className="flex-1">
-
         <Navbar />
 
         <main className="p-8">
 
-          <h1 className="text-3xl font-bold text-[#E5E7EB] mb-8">
-            Dashboard RAD
-          </h1>
+          {/* HEADER */}
 
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <div className="mb-8">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-[#06B6D4] to-[#1E3A8A] bg-clip-text text-transparent">
+              Dashboard Académico
+            </h1>
 
-            <RiskCard
-              level="Estudiantes"
-              amount="150"
-            />
+            <p className="text-gray-400 mt-2">
+              Monitoreo general del rendimiento estudiantil.
+            </p>
+          </div>
 
-            <RiskCard
-              level="Riesgo Bajo"
-              amount="78%"
-            />
+          <div className="flex gap-6 mt-4 mb-8">
 
-            <RiskCard
-              level="Riesgo Medio"
-              amount="10%"
-            />
+            <span className="text-green-400 text-sm">
+              ● 150 estudiantes activos
+            </span>
 
-            <RiskCard
-              level="Riesgo Alto"
-              amount="12%"
-            />
+            <span className="text-cyan-400 text-sm">
+              ● 91% asistencia promedio
+            </span>
+
+            <span className="text-yellow-400 text-sm">
+              ● 10% seguimiento
+            </span>
 
           </div>
 
-          <AttendanceChart />
+          {/* RESUMEN */}
+
+          <div className="bg-[#25252D] rounded-xl border border-gray-800 p-6 mb-8 shadow-lg">
+
+            <h2 className="text-xl font-semibold text-[#E5E7EB] mb-3">
+              Resumen General
+            </h2>
+
+            <p className="text-gray-400 leading-relaxed">
+              RAD analiza asistencia, rendimiento académico y factores de riesgo
+              para apoyar la toma de decisiones educativas.
+            </p>
+
+          </div>
+
+          {/* KPIs */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+
+            {stats.map((stat) => (
+              <StatCard
+                key={stat.title}
+                title={stat.title}
+                value={stat.value}
+              />
+            ))}
+
+          </div>
+
+          {/* ALERTAS */}
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+
+            <div className="bg-[#25252D] rounded-xl border border-red-500/30 p-5">
+
+              <h3 className="text-red-400 font-semibold mb-2">
+                Riesgo Alto
+              </h3>
+
+              <p className="text-gray-300">
+                12% de los estudiantes presentan indicadores críticos.
+              </p>
+
+            </div>
+
+            <div className="bg-[#25252D] rounded-xl border border-yellow-500/30 p-5">
+
+              <h3 className="text-yellow-400 font-semibold mb-2">
+                Seguimiento
+              </h3>
+
+              <p className="text-gray-300">
+                10% requieren monitoreo constante.
+              </p>
+
+            </div>
+
+            <div className="bg-[#25252D] rounded-xl border border-cyan-500/30 p-5">
+
+              <h3 className="text-cyan-400 font-semibold mb-2">
+                Rendimiento
+              </h3>
+
+              <p className="text-gray-300">
+                La mayoría mantiene desempeño estable.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* GRÁFICOS */}
+
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+
+            <AttendanceChart />
+
+            <RiskChart />
+
+          </div>
+
+          {/* TABLA */}
+
+          <StudentTable />
 
         </main>
-
       </div>
-
     </div>
   );
 }

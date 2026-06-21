@@ -4,7 +4,7 @@
 from email.mime import base
 import string
 
-from sqlalchemy import Column, Integer, String, column, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from database import Base
 
 class User(Base):
