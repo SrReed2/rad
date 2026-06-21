@@ -1,10 +1,7 @@
 ## aca se define como seran los datos en las tablas de la base de datos, 
 ## se crean las clases que representan cada tabla, con sus respectivas columnas y tipos de datos
 
-from email.mime import base
-import string
-
-from sqlalchemy import Column, Integer, String, column, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from database import Base
 
 class User(Base):
@@ -25,8 +22,8 @@ class teacher(Base):
     classroom = Column(String)
     
 class classroom(Base):
-    __tablename__="clases"
+    __tablename__ = "clases"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     description = Column(String)
-    teacher_id = Column(Integer, nullable=False, ForeignKey="teachers.id")
+    teacher_id = Column(Integer, ForeignKey("teachers.id"), nullable=False)
