@@ -1,11 +1,4 @@
-export interface Student {
-  id: number;
-  name: string;
-  grade: number;
-  attendance: number;
-}
-
-export const students: Student[] = [
+export const students = [
   {
     id: 1,
     name: "Ana López",
@@ -29,5 +22,17 @@ export const students: Student[] = [
     name: "Luis Pérez",
     grade: 60,
     attendance: 65,
+  },
+  {
+    id: 5,
+    name: "José Martínez",
+    grade: 45,
+    attendance: 55,
+  },
+  {
+    id: 6,
+    name: "Andrea Castillo",
+    grade: 82,
+    attendance: 91,
   },
 ];

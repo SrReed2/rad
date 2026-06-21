@@ -3,14 +3,16 @@ export const stats = [
     title: "Estudiantes",
     value: 150,
   },
-
   {
     title: "Asistencia",
-    value: "92%",
+    value: "91%",
   },
-
   {
-    title: "Riesgo Bajo",
-    value: "78%",
+    title: "Riesgo Alto",
+    value: "12%",
+  },
+  {
+    title: "Aprobación",
+    value: "87%",
   },
 ];

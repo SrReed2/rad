@@ -1,36 +1,73 @@
 export default function Sidebar() {
   return (
-    <aside className="w-64 min-h-screen bg-[#1A1A1F] border-r border-gray-800 text-[#E5E7EB] p-6">
+    <aside
+      className="
+      w-72
+      min-h-screen
+      bg-[#202027]
+      border-r
+      border-gray-800
+      flex
+      flex-col
+      "
+    >
+      <div className="p-8">
+        <h1 className="text-4xl font-bold text-[#06B6D4]">
+          RAD
+        </h1>
 
-      <div className="mb-10">
-        <h2 className="text-xl font-bold">
-          Menú
-        </h2>
+        <p className="text-sm text-gray-500 mt-1">
+          Risk Analysis Dashboard
+        </p>
       </div>
 
-      <ul className="space-y-4">
+      <nav className="flex flex-col gap-3 px-6 mt-4">
 
-        <li className="cursor-pointer transition hover:text-[#06B6D4]">
+        <a
+          href="/dashboard"
+          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
+        >
           Dashboard
-        </li>
+        </a>
 
-        <li className="cursor-pointer transition hover:text-[#06B6D4]">
+        <a
+          href="/students"
+          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
+        >
           Estudiantes
-        </li>
+        </a>
 
-        <li className="cursor-pointer transition hover:text-[#06B6D4]">
+        <a
+          href="/attendance"
+          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
+        >
           Asistencia
-        </li>
+        </a>
 
-        <li className="cursor-pointer transition hover:text-[#06B6D4]">
+        <a
+          href="#"
+          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
+        >
           Predicciones
-        </li>
+        </a>
 
-        <li className="cursor-pointer transition hover:text-[#06B6D4]">
-          Reportes
-        </li>
+      </nav>
 
-      </ul>
+      <div className="mt-auto p-6">
+
+        <div className="bg-[#2E2E38] rounded-lg p-4 border border-gray-700">
+
+          <p className="text-xs text-gray-400">
+            Estado del Sistema
+          </p>
+
+          <p className="text-cyan-400 font-semibold mt-1">
+            ● Online
+          </p>
+
+        </div>
+
+      </div>
     </aside>
   );
 }
