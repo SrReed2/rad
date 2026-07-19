@@ -1,14 +1,14 @@
-## nueva version, aca lo que hice es integrar todos los cambios que hicimos
-
-
+## nueva version, aca lo que hice es integrar todos los cambios que hicimos :v
 
 from fastapi import FastAPI
 
 from routes.auth import router as auth_router
+from routes.classrooms import router as classroom_router  # 1. IMPORTAMOS el router de salones
+from routes.academic import router as academic_router    # 2. IMPORTAMOS el nuevo router académico
 from database import Base, engine
 
 
-# Crear tablas definidas en models.py
+# crear tablas definidas en model.py
 Base.metadata.create_all(bind=engine)
 
 
@@ -19,7 +19,7 @@ app = FastAPI(
 )
 
 
-# Rutas de autenticacion 
+# ruta  de autenticacion
 app.include_router(
     auth_router,
     prefix="/auth",
@@ -27,7 +27,21 @@ app.include_router(
 )
 
 
-# Endpoint de prueba
+# ruta de salones 
+app.include_router(
+    classroom_router,
+    prefix="/classrooms",
+    tags=["Classrooms"]
+)
+
+
+# ruta académica 
+app.include_router(
+    academic_router,
+)
+
+
+# endpoint de prueba
 @app.get("/")
 def read_root():
     return {

@@ -1,5 +1,5 @@
 # Primera versión de database.py
-# Encargado de comunicar fastAPI con postgreSQL
+# Encargado de comunicar fastAPI con postgreSQL :v
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
