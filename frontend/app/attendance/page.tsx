@@ -48,14 +48,14 @@ export default function AttendancePage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#1A1A1F]">
+    <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
       <div className="flex-1">
         <Navbar />
         <main className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-5xl font-black bg-gradient-to-r from-[#06B6D4] to-[#1E3A8A] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
               Asistencia
             </h1>
             <p className="text-gray-400 mt-2">
@@ -65,15 +65,15 @@ export default function AttendancePage() {
 
           {/* KPIs */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-[#25252D] p-5 rounded-xl border border-gray-800">
+            <div className="bg-white p-5 rounded-xl border border-gray-800">
               <p className="text-gray-400 text-sm">Promedio General</p>
-              <h2 className="text-3xl font-bold text-[#06B6D4] mt-1">{avgAttendance}%</h2>
+              <h2 className="text-3xl font-bold text-[#14495C] mt-1">{avgAttendance}%</h2>
             </div>
-            <div className="bg-[#25252D] p-5 rounded-xl border border-green-500/20">
+            <div className="bg-white p-5 rounded-xl border border-green-500/20">
               <p className="text-gray-400 text-sm">Asistencia ≥ 90%</p>
               <h2 className="text-3xl font-bold text-green-400 mt-1">{good}</h2>
             </div>
-            <div className="bg-[#25252D] p-5 rounded-xl border border-red-500/20">
+            <div className="bg-white p-5 rounded-xl border border-red-500/20">
               <p className="text-gray-400 text-sm">Asistencia Crítica &lt; 70%</p>
               <h2 className="text-3xl font-bold text-red-400 mt-1">{critical}</h2>
             </div>
@@ -85,9 +85,9 @@ export default function AttendancePage() {
           </div>
 
           {/* Tabla de asistencia */}
-          <div className="bg-[#25252D] rounded-xl p-6 border border-gray-800">
+          <div className="bg-white rounded-xl p-6 border border-gray-800">
             <div className="flex flex-col md:flex-row gap-4 mb-6 items-start md:items-center justify-between">
-              <h2 className="text-xl font-bold text-[#E5E7EB]">
+              <h2 className="font-serif text-xl font-bold text-[#26313D]">
                 Registro de Asistencia
               </h2>
 
@@ -98,7 +98,7 @@ export default function AttendancePage() {
                   placeholder="Buscar estudiante..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="bg-[#1A1A1F] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#E5E7EB] outline-none focus:border-[#06B6D4] transition-colors"
+                  className="bg-[#F6EFE0] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#26313D] outline-none focus:border-[#14495C] transition-colors"
                 />
 
                 {/* Filtro riesgo */}
@@ -108,7 +108,7 @@ export default function AttendancePage() {
                     onClick={() => setFilterRisk(r)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                       filterRisk === r
-                        ? "bg-[#06B6D4]/20 text-[#06B6D4] border border-[#06B6D4]/30"
+                        ? "bg-[#14495C]/20 text-[#14495C] border border-[#14495C]/30"
                         : "border border-gray-700 text-gray-400 hover:text-gray-200"
                     }`}
                   >
@@ -120,7 +120,7 @@ export default function AttendancePage() {
 
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-[#2E2E38]">
+                <thead className="bg-[#F1E8D6]">
                   <tr className="text-left text-gray-400">
                     <th className="p-4">Estudiante</th>
                     <th className="hidden md:table-cell">Materia</th>
@@ -143,9 +143,9 @@ export default function AttendancePage() {
                       return (
                         <tr
                           key={s.id}
-                          className="border-t border-gray-800 hover:bg-[#2E2E38] transition-colors"
+                          className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
                         >
-                          <td className="p-4 font-medium text-[#E5E7EB]">{s.name}</td>
+                          <td className="p-4 font-medium text-[#26313D]">{s.name}</td>
                           <td className="hidden md:table-cell text-gray-400">
                             {s.subject ?? "—"}
                           </td>

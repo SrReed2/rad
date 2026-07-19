@@ -46,14 +46,14 @@ export default function PredictionsPage() {
   );
 
   return (
-    <div className="flex min-h-screen bg-[#1A1A1F]">
+    <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
       <div className="flex-1">
         <Navbar />
         <main className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-5xl font-black bg-gradient-to-r from-[#06B6D4] to-[#1E3A8A] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
               Predicciones de Riesgo
             </h1>
             <p className="text-gray-400 mt-2">
@@ -67,7 +67,7 @@ export default function PredictionsPage() {
             {(["Bajo", "Medio", "Alto"] as const).map((level) => (
               <div
                 key={level}
-                className={`bg-[#25252D] p-6 rounded-xl border ${RISK_STYLES[level].card}`}
+                className={`bg-white p-6 rounded-xl border ${RISK_STYLES[level].card}`}
               >
                 <p className="text-gray-400 text-sm mb-1">{level} Riesgo</p>
                 <p className={`text-4xl font-black mt-2 ${RISK_STYLES[level].label}`}>
@@ -93,8 +93,8 @@ export default function PredictionsPage() {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
             <RiskChart />
 
-            <div className="bg-[#25252D] p-6 rounded-xl border border-gray-800">
-              <h3 className="text-lg font-bold text-[#E5E7EB] mb-4">
+            <div className="bg-white p-6 rounded-xl border border-gray-800">
+              <h3 className="font-serif text-lg font-bold text-[#26313D] mb-4">
                 Criterios de Clasificación
               </h3>
               <div className="space-y-4 text-sm">
@@ -126,7 +126,7 @@ export default function PredictionsPage() {
                   </div>
                 </div>
 
-                <div className="mt-4 p-3 rounded-lg bg-[#2E2E38] border border-gray-700">
+                <div className="mt-4 p-3 rounded-lg bg-[#F1E8D6] border border-gray-700">
                   <p className="text-xs text-gray-500">
                     ⚙️ <span className="text-gray-400">Agosto:</span> se integrará el endpoint de inferencia
                     ML para predicciones basadas en múltiples variables.
@@ -137,13 +137,13 @@ export default function PredictionsPage() {
           </div>
 
           {/* Tabla completa */}
-          <div className="bg-[#25252D] rounded-xl p-6 border border-gray-800">
-            <h2 className="text-xl font-bold text-[#E5E7EB] mb-5">
+          <div className="bg-white rounded-xl p-6 border border-gray-800">
+            <h2 className="font-serif text-xl font-bold text-[#26313D] mb-5">
               Listado por Nivel de Riesgo
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-[#2E2E38]">
+                <thead className="bg-[#F1E8D6]">
                   <tr className="text-left text-gray-400">
                     <th className="p-4">ID</th>
                     <th>Nombre</th>
@@ -161,10 +161,10 @@ export default function PredictionsPage() {
                     return (
                       <tr
                         key={s.id}
-                        className="border-t border-gray-800 hover:bg-[#2E2E38] transition-colors"
+                        className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
                       >
                         <td className="p-4 text-gray-400">{s.id}</td>
-                        <td className="font-medium text-[#E5E7EB]">{s.name}</td>
+                        <td className="font-medium text-[#26313D]">{s.name}</td>
                         <td className="hidden md:table-cell text-gray-400">
                           {s.subject ?? "—"}
                         </td>

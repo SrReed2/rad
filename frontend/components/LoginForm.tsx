@@ -36,11 +36,13 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleLogin}
-      className="bg-[#25252D] p-10 rounded-2xl shadow-2xl w-[420px] border border-gray-800"
+      className="bg-white p-10 rounded-2xl shadow-xl w-[420px] border border-gray-800"
     >
       {/* Logo / título */}
       <div className="text-center mb-8">
-        <h1 className="text-5xl font-black text-[#06B6D4] tracking-tight">RAD</h1>
+        <h1 className="font-serif text-5xl font-bold tracking-tight bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
+          RAD
+        </h1>
         <p className="text-gray-400 text-sm mt-1 tracking-widest uppercase">
           Risk Analysis Dashboard
         </p>
@@ -67,9 +69,9 @@ export default function LoginForm() {
           disabled={loading}
           className="
             w-full p-3 rounded-lg
-            bg-[#1A1A1F] text-[#E5E7EB]
+            bg-[#F6EFE0] text-[#26313D]
             border border-gray-700
-            focus:border-[#06B6D4] focus:outline-none
+            focus:border-[#14495C] focus:outline-none
             transition-colors
             disabled:opacity-50
           "
@@ -90,9 +92,9 @@ export default function LoginForm() {
           disabled={loading}
           className="
             w-full p-3 rounded-lg
-            bg-[#1A1A1F] text-[#E5E7EB]
+            bg-[#F6EFE0] text-[#26313D]
             border border-gray-700
-            focus:border-[#06B6D4] focus:outline-none
+            focus:border-[#14495C] focus:outline-none
             transition-colors
             disabled:opacity-50
           "
@@ -104,7 +106,7 @@ export default function LoginForm() {
         type="submit"
         disabled={loading}
         className="
-          w-full bg-[#06B6D4] hover:bg-cyan-400
+          w-full bg-[#14495C] hover:bg-[#0F3646]
           transition-colors text-white font-bold
           p-3 rounded-lg text-base
           disabled:opacity-50 disabled:cursor-not-allowed

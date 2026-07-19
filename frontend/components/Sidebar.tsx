@@ -23,11 +23,13 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-72 min-h-screen bg-[#202027] border-r border-gray-800 flex flex-col">
+    <aside className="w-72 min-h-screen bg-[#1F2E3D] border-r border-[#2C3D4E] flex flex-col">
       {/* Logo */}
-      <div className="p-8 border-b border-gray-800">
-        <h1 className="text-4xl font-black text-[#06B6D4] tracking-tight">RAD</h1>
-        <p className="text-xs text-gray-500 mt-1 tracking-widest uppercase">
+      <div className="p-8 border-b border-[#2C3D4E]">
+        <h1 className="font-serif text-4xl font-bold tracking-tight bg-gradient-to-r from-[#7FB8C9] to-[#D9BD85] bg-clip-text text-transparent">
+          RAD
+        </h1>
+        <p className="text-xs text-[#96876E] mt-1 tracking-widest uppercase">
           Risk Analysis Dashboard
         </p>
       </div>
@@ -45,15 +47,15 @@ export default function Sidebar() {
                 transition-all duration-200
                 ${
                   isActive
-                    ? "bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30"
-                    : "text-gray-400 hover:text-[#E5E7EB] hover:bg-[#2E2E38]"
+                    ? "bg-[#7FB8C9]/15 text-[#7FB8C9] border border-[#7FB8C9]/30"
+                    : "text-[#B9AD97] hover:text-[#F1E9D8] hover:bg-[#2C3F54]"
                 }
               `}
             >
               <span className="text-base">{item.icon}</span>
               {item.label}
               {isActive && (
-                <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#06B6D4]" />
+                <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#7FB8C9]" />
               )}
             </Link>
           );
@@ -63,23 +65,23 @@ export default function Sidebar() {
       {/* Footer del sidebar */}
       <div className="mt-auto p-6 space-y-3">
         {/* Estado del sistema */}
-        <div className="bg-[#2E2E38] rounded-lg p-4 border border-gray-700">
-          <p className="text-xs text-gray-400 mb-1">Estado del Sistema</p>
-          <p className="text-cyan-400 font-semibold text-sm">● Online</p>
+        <div className="bg-[#2C3F54] rounded-lg p-4 border border-[#37495B]">
+          <p className="text-xs text-[#B9AD97] mb-1">Estado del Sistema</p>
+          <p className="text-[#7FB8C9] font-semibold text-sm">● Online</p>
         </div>
 
         {/* Usuario */}
         {user && (
-          <div className="bg-[#25252D] rounded-lg p-3 border border-gray-800 flex items-center justify-between">
+          <div className="bg-[#24384A] rounded-lg p-3 border border-[#2C3D4E] flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-400">Sesión</p>
-              <p className="text-sm text-[#E5E7EB] font-medium capitalize">{user.username}</p>
-              <p className="text-xs text-gray-500 capitalize">{user.role}</p>
+              <p className="text-xs text-[#B9AD97]">Sesión</p>
+              <p className="text-sm text-[#F1E9D8] font-medium capitalize">{user.username}</p>
+              <p className="text-xs text-[#96876E] capitalize">{user.role}</p>
             </div>
             <button
               onClick={handleLogout}
               title="Cerrar sesión"
-              className="text-gray-500 hover:text-red-400 transition-colors text-xl p-1"
+              className="text-[#96876E] hover:text-[#D98B78] transition-colors text-xl p-1"
             >
               ⏻
             </button>

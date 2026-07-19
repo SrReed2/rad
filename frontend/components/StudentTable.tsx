@@ -68,18 +68,18 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
   };
 
   const SortIcon = ({ col }: { col: keyof Student }) => (
-    <span className={`ml-1 text-xs ${sortBy === col ? "text-[#06B6D4]" : "text-gray-600"}`}>
+    <span className={`ml-1 text-xs ${sortBy === col ? "text-[#14495C]" : "text-gray-600"}`}>
       {sortBy === col ? (sortDir === "asc" ? "▲" : "▼") : "⇅"}
     </span>
   );
 
   return (
-    <div className="bg-[#25252D] rounded-xl p-6 border border-gray-800">
+    <div className="bg-white rounded-xl p-6 border border-gray-800">
       {/* Modal de confirmación */}
       {confirmDeleteId !== null && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-[#25252D] border border-red-500/30 rounded-xl p-8 w-[380px] shadow-2xl">
-            <h3 className="text-lg font-bold text-[#E5E7EB] mb-2">Confirmar eliminación</h3>
+          <div className="bg-white border border-red-500/30 rounded-xl p-8 w-[380px] shadow-2xl">
+            <h3 className="font-serif text-lg font-bold text-[#26313D] mb-2">Confirmar eliminación</h3>
             <p className="text-gray-400 text-sm mb-6">
               ¿Estás seguro? Esta acción no se puede deshacer.
             </p>
@@ -102,7 +102,7 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
       )}
 
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-[#E5E7EB]">Estudiantes</h2>
+        <h2 className="font-serif text-2xl font-bold text-[#26313D]">Estudiantes</h2>
         <span className="text-gray-400 text-sm">{filtered.length} registros</span>
       </div>
 
@@ -110,29 +110,29 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-[#2E2E38]">
+          <thead className="bg-[#F1E8D6]">
             <tr className="text-left text-gray-400">
               <th
-                className="p-4 cursor-pointer hover:text-[#06B6D4] transition-colors select-none"
+                className="p-4 cursor-pointer hover:text-[#14495C] transition-colors select-none"
                 onClick={() => handleSort("id")}
               >
                 ID <SortIcon col="id" />
               </th>
               <th
-                className="cursor-pointer hover:text-[#06B6D4] transition-colors select-none"
+                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
                 onClick={() => handleSort("name")}
               >
                 Nombre <SortIcon col="name" />
               </th>
               <th className="hidden md:table-cell">Materia</th>
               <th
-                className="cursor-pointer hover:text-[#06B6D4] transition-colors select-none"
+                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
                 onClick={() => handleSort("grade")}
               >
                 Nota <SortIcon col="grade" />
               </th>
               <th
-                className="cursor-pointer hover:text-[#06B6D4] transition-colors select-none"
+                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
                 onClick={() => handleSort("attendance")}
               >
                 Asistencia <SortIcon col="attendance" />
@@ -157,10 +157,10 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
                 return (
                   <tr
                     key={student.id}
-                    className="border-t border-gray-800 hover:bg-[#2E2E38] transition-colors"
+                    className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
                   >
                     <td className="p-4 text-gray-400">{student.id}</td>
-                    <td className="font-medium text-[#E5E7EB]">{student.name}</td>
+                    <td className="font-medium text-[#26313D]">{student.name}</td>
                     <td className="hidden md:table-cell text-gray-400">
                       {student.subject ?? "—"}
                     </td>
