@@ -36,15 +36,21 @@ export default function AttendanceChart() {
       {
         label: "Asistencia",
         data: [75, 82, 79, 85, 90, 92],
-        borderColor: "#06B6D4",
+        borderColor: "#14495C",
+        backgroundColor: "rgba(20, 73, 92, 0.08)",
+        pointBackgroundColor: "#14495C",
+        pointBorderColor: "#FFFFFF",
+        pointRadius: 4,
+        tension: 0.35,
+        fill: true,
       },
     ],
   };
 
   return (
-    <div className="bg-[#25252D] p-6 rounded-xl border border-gray-800">
+    <div className="bg-white p-6 rounded-xl border border-gray-800">
 
-      <h2 className="text-xl font-bold mb-4">
+      <h2 className="font-serif text-xl font-bold text-[#26313D] mb-4">
         Evolución de Asistencia
       </h2>
 

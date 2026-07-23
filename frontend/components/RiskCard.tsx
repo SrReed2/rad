@@ -10,7 +10,7 @@ export default function RiskCard({
   return (
     <div
       className="
-      bg-[#25252D]
+      bg-white
       rounded-xl
       p-6
       border

@@ -9,7 +9,7 @@ import { stats } from "../../data/mockData";
 
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen bg-[#1A1A1F]">
+    <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
 
       <div className="flex-1">
@@ -20,7 +20,7 @@ export default function DashboardPage() {
           {/* HEADER */}
 
           <div className="mb-8">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-[#06B6D4] to-[#1E3A8A] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-bold bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
               Dashboard Académico
             </h1>
 
@@ -47,9 +47,9 @@ export default function DashboardPage() {
 
           {/* RESUMEN */}
 
-          <div className="bg-[#25252D] rounded-xl border border-gray-800 p-6 mb-8 shadow-lg">
+          <div className="bg-white rounded-xl border border-gray-800 p-6 mb-8 shadow-lg">
 
-            <h2 className="text-xl font-semibold text-[#E5E7EB] mb-3">
+            <h2 className="font-serif text-xl font-semibold text-[#26313D] mb-3">
               Resumen General
             </h2>
 
@@ -78,7 +78,7 @@ export default function DashboardPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 
-            <div className="bg-[#25252D] rounded-xl border border-red-500/30 p-5">
+            <div className="bg-white rounded-xl border border-red-500/30 p-5">
 
               <h3 className="text-red-400 font-semibold mb-2">
                 Riesgo Alto
@@ -90,7 +90,7 @@ export default function DashboardPage() {
 
             </div>
 
-            <div className="bg-[#25252D] rounded-xl border border-yellow-500/30 p-5">
+            <div className="bg-white rounded-xl border border-yellow-500/30 p-5">
 
               <h3 className="text-yellow-400 font-semibold mb-2">
                 Seguimiento
@@ -102,7 +102,7 @@ export default function DashboardPage() {
 
             </div>
 
-            <div className="bg-[#25252D] rounded-xl border border-cyan-500/30 p-5">
+            <div className="bg-white rounded-xl border border-cyan-500/30 p-5">
 
               <h3 className="text-cyan-400 font-semibold mb-2">
                 Rendimiento

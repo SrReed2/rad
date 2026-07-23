@@ -1,12 +1,24 @@
 @import "tailwindcss";
 
-:root {
-  --background: #1A1A1F;
-  --foreground: #E5E7EB;
+/*
+  ============================================================
+  RAD — sistema de color "Legado Académico"
+  Inspirado en la paleta de acentos griegos: piedra cálida,
+  bronce envejecido, oliva y tinta. Pensado para un panel
+  educativo serio y fácil de leer (nada de negro puro ni
+  neón — confianza, calidez y tradición).
+  ============================================================
+*/
 
-  --card: #25252D;
-  --accent: #06B6D4;
-  --hover: #374151;
+:root {
+  /* Superficies cálidas (antes: casi negro) */
+  --background: #F6EFE0;       /* fondo general — pergamino */
+  --foreground: #26313D;       /* texto principal — tinta */
+
+  --card: #FFFFFF;             /* tarjetas / paneles */
+  --accent: #14495C;           /* acento primario — teal profundo */
+  --accent-gold: #B78A4D;      /* acento secundario — bronce/legado */
+  --hover: #F1E8D6;            /* hover sobre superficies claras */
 }
 
 @theme inline {
@@ -15,6 +27,42 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-fraunces);
+
+  /*
+    Reemplazamos la escala de grises y los colores semánticos
+    de Tailwind por la paleta cálida del proyecto. Como el
+    fondo pasó de oscuro a claro, la relación se invierte a
+    propósito: en la escala original, gray-200 era más claro
+    (más visible) que gray-800 sobre un fondo oscuro. Aquí,
+    gray-200 es más oscuro (más visible) que gray-800 sobre
+    un fondo claro — así los componentes que ya usaban estas
+    clases (hover más "fuerte", bordes más "sutiles") se
+    comportan igual sin tocar cada archivo.
+  */
+  --color-gray-200: #2A2318;   /* texto en hover — máximo énfasis */
+  --color-gray-300: #4A4235;   /* texto secundario con énfasis */
+  --color-gray-400: #6B6152;   /* texto secundario estándar */
+  --color-gray-500: #8C8171;   /* texto atenuado */
+  --color-gray-600: #A79B87;   /* texto muy atenuado */
+  --color-gray-700: #D6C7A8;   /* bordes visibles (inputs) */
+  --color-gray-800: #E7DAC0;   /* bordes sutiles (tarjetas) */
+
+  /* Riesgo alto / errores — terracota, no rojo neón */
+  --color-red-400: #A6503D;
+  --color-red-500: #8B4130;
+
+  /* Riesgo medio / advertencias — ocre dorado */
+  --color-yellow-400: #8A6A2E;
+  --color-yellow-500: #9C7A34;
+
+  /* Aprobado / riesgo bajo positivo — oliva salvia */
+  --color-green-400: #4F6B4A;
+  --color-green-500: #46603F;
+
+  /* Acento informativo — el teal reemplaza al cian */
+  --color-cyan-400: #14495C;
+  --color-cyan-500: #0F3646;
 }
 
 * {
@@ -32,7 +80,7 @@ body {
   background:
     radial-gradient(
       circle at top right,
-      rgba(6, 182, 212, 0.08),
+      rgba(183, 138, 77, 0.10),
       transparent 25%
     ),
     var(--background);

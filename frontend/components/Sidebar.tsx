@@ -1,72 +1,92 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
+
+const NAV_ITEMS = [
+  { label: "Dashboard", href: "/dashboard", icon: "▦" },
+  { label: "Estudiantes", href: "/students", icon: "◈" },
+  { label: "Asistencia", href: "/attendance", icon: "◷" },
+  { label: "Predicciones", href: "/predictions", icon: "◉" },
+];
+
 export default function Sidebar() {
+  const pathname = usePathname();
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push("/login");
+  };
+
   return (
-    <aside
-      className="
-      w-72
-      min-h-screen
-      bg-[#202027]
-      border-r
-      border-gray-800
-      flex
-      flex-col
-      "
-    >
-      <div className="p-8">
-        <h1 className="text-4xl font-bold text-[#06B6D4]">
+    <aside className="w-72 min-h-screen bg-[#1F2E3D] border-r border-[#2C3D4E] flex flex-col">
+      {/* Logo */}
+      <div className="p-8 border-b border-[#2C3D4E]">
+        <h1 className="font-serif text-4xl font-bold tracking-tight bg-gradient-to-r from-[#7FB8C9] to-[#D9BD85] bg-clip-text text-transparent">
           RAD
         </h1>
-
-        <p className="text-sm text-gray-500 mt-1">
+        <p className="text-xs text-[#96876E] mt-1 tracking-widest uppercase">
           Risk Analysis Dashboard
         </p>
       </div>
 
-      <nav className="flex flex-col gap-3 px-6 mt-4">
-
-        <a
-          href="/dashboard"
-          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
-        >
-          Dashboard
-        </a>
-
-        <a
-          href="/students"
-          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
-        >
-          Estudiantes
-        </a>
-
-        <a
-          href="/attendance"
-          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
-        >
-          Asistencia
-        </a>
-
-        <a
-          href="#"
-          className="text-[#E5E7EB] hover:text-[#06B6D4] transition-colors"
-        >
-          Predicciones
-        </a>
-
+      {/* Navegación */}
+      <nav className="flex flex-col gap-1 px-4 mt-6">
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`
+                flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium
+                transition-all duration-200
+                ${
+                  isActive
+                    ? "bg-[#7FB8C9]/15 text-[#7FB8C9] border border-[#7FB8C9]/30"
+                    : "text-[#B9AD97] hover:text-[#F1E9D8] hover:bg-[#2C3F54]"
+                }
+              `}
+            >
+              <span className="text-base">{item.icon}</span>
+              {item.label}
+              {isActive && (
+                <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#7FB8C9]" />
+              )}
+            </Link>
+          );
+        })}
       </nav>
 
-      <div className="mt-auto p-6">
-
-        <div className="bg-[#2E2E38] rounded-lg p-4 border border-gray-700">
-
-          <p className="text-xs text-gray-400">
-            Estado del Sistema
-          </p>
-
-          <p className="text-cyan-400 font-semibold mt-1">
-            ● Online
-          </p>
-
+      {/* Footer del sidebar */}
+      <div className="mt-auto p-6 space-y-3">
+        {/* Estado del sistema */}
+        <div className="bg-[#2C3F54] rounded-lg p-4 border border-[#37495B]">
+          <p className="text-xs text-[#B9AD97] mb-1">Estado del Sistema</p>
+          <p className="text-[#7FB8C9] font-semibold text-sm">● Online</p>
         </div>
 
+        {/* Usuario */}
+        {user && (
+          <div className="bg-[#24384A] rounded-lg p-3 border border-[#2C3D4E] flex items-center justify-between">
+            <div>
+              <p className="text-xs text-[#B9AD97]">Sesión</p>
+              <p className="text-sm text-[#F1E9D8] font-medium capitalize">{user.username}</p>
+              <p className="text-xs text-[#96876E] capitalize">{user.role}</p>
+            </div>
+            <button
+              onClick={handleLogout}
+              title="Cerrar sesión"
+              className="text-[#96876E] hover:text-[#D98B78] transition-colors text-xl p-1"
+            >
+              ⏻
+            </button>
+          </div>
+        )}
       </div>
     </aside>
   );
