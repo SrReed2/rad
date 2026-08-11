@@ -54,7 +54,7 @@ export default function DashboardPage() {
             </h2>
 
             <p className="text-gray-400 leading-relaxed">
-              RAD analiza asistencia, rendimiento académico y factores de riesgo
+              SOFÍA analiza asistencia, rendimiento académico y factores de riesgo
               para apoyar la toma de decisiones educativas.
             </p>
 
@@ -126,9 +126,8 @@ export default function DashboardPage() {
 
           </div>
 
-          {/* TABLA */}
-
-          <StudentTable />
+          {/* TABLA — vista general, solo lectura. Editar/eliminar vive en Estudiantes. */}
+          <StudentTable readOnly />
 
         </main>
       </div>

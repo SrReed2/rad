@@ -4,6 +4,8 @@ import {
   createContext,
   useContext,
   useState,
+  useCallback,
+  useMemo,
   ReactNode,
 } from "react";
 
@@ -25,7 +27,7 @@ interface StudentsContextType {
 
 const StudentsContext = createContext<StudentsContextType | null>(null);
 
-// Dataset inicial — en Agosto se reemplazará con fetch al endpoint real
+// Dataset inicial — se reemplazará con fetch al endpoint real cuando se conecte el backend
 const INITIAL_STUDENTS: Student[] = [
   { id: 1, name: "Ana López", grade: 89, attendance: 95, subject: "Matemáticas", period: "2024-I" },
   { id: 2, name: "Carlos Ruiz", grade: 72, attendance: 80, subject: "Física", period: "2024-I" },
@@ -42,25 +44,33 @@ const INITIAL_STUDENTS: Student[] = [
 export function StudentsProvider({ children }: { children: ReactNode }) {
   const [students, setStudents] = useState<Student[]>(INITIAL_STUDENTS);
 
-  const addStudent = (data: Omit<Student, "id">) => {
-    const newId = students.length > 0 ? Math.max(...students.map((s) => s.id)) + 1 : 1;
-    setStudents((prev) => [...prev, { id: newId, ...data }]);
-  };
+  // useCallback: estas funciones mantienen la misma referencia entre renders,
+  // así los componentes que las reciben no vuelven a renderizar sin necesidad.
+  const addStudent = useCallback((data: Omit<Student, "id">) => {
+    setStudents((prev) => {
+      const newId = prev.length > 0 ? Math.max(...prev.map((s) => s.id)) + 1 : 1;
+      return [...prev, { id: newId, ...data }];
+    });
+  }, []);
 
-  const updateStudent = (id: number, data: Partial<Omit<Student, "id">>) => {
-    setStudents((prev) =>
-      prev.map((s) => (s.id === id ? { ...s, ...data } : s))
-    );
-  };
+  const updateStudent = useCallback((id: number, data: Partial<Omit<Student, "id">>) => {
+    setStudents((prev) => prev.map((s) => (s.id === id ? { ...s, ...data } : s)));
+  }, []);
 
-  const deleteStudent = (id: number) => {
+  const deleteStudent = useCallback((id: number) => {
     setStudents((prev) => prev.filter((s) => s.id !== id));
-  };
+  }, []);
+
+  // useMemo: evita crear un objeto de contexto nuevo en cada render, lo que
+  // haría que TODOS los componentes que usan useStudents() se re-rendericen
+  // aunque no les afecte el cambio.
+  const value = useMemo(
+    () => ({ students, addStudent, updateStudent, deleteStudent }),
+    [students, addStudent, updateStudent, deleteStudent]
+  );
 
   return (
-    <StudentsContext.Provider
-      value={{ students, addStudent, updateStudent, deleteStudent }}
-    >
+    <StudentsContext.Provider value={value}>
       {children}
     </StudentsContext.Provider>
   );

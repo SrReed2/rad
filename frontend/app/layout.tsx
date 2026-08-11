@@ -17,7 +17,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "RAD - Risk Analysis Dashboard",
+  title: "SOFÍA - Panel de Análisis Académico",
   description: "Plataforma de análisis de riesgo académico estudiantil",
 };
 

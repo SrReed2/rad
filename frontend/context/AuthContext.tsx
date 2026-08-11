@@ -5,6 +5,8 @@ import {
   useContext,
   useState,
   useEffect,
+  useCallback,
+  useMemo,
   ReactNode,
 } from "react";
 
@@ -22,10 +24,12 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+const STORAGE_KEY = "sofia_user";
+
 // Credenciales demo — reemplazar con llamada real al backend
 const DEMO_USERS: Record<string, { password: string; role: "admin" | "docente" }> = {
   admin: { password: "admin123", role: "admin" },
-  docente: { password: "rad2024", role: "docente" },
+  docente: { password: "sofia2024", role: "docente" },
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -35,41 +39,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   // Restaurar sesión al recargar
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("rad_user");
+      const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         setUser(JSON.parse(stored));
       }
     } catch {
-      localStorage.removeItem("rad_user");
+      localStorage.removeItem(STORAGE_KEY);
     } finally {
       setIsLoading(false);
     }
   }, []);
 
-  const login = async (username: string, password: string): Promise<boolean> => {
-    // Simula llamada async al backend (sustituir por fetch real en Agosto)
+  const login = useCallback(async (username: string, password: string): Promise<boolean> => {
+    // Simula llamada async al backend (sustituir por fetch real más adelante)
     await new Promise((r) => setTimeout(r, 400));
 
     const found = DEMO_USERS[username.toLowerCase()];
     if (found && found.password === password) {
       const userData: User = { username, role: found.role };
       setUser(userData);
-      localStorage.setItem("rad_user", JSON.stringify(userData));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
       return true;
     }
     return false;
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
-    localStorage.removeItem("rad_user");
-  };
+    localStorage.removeItem(STORAGE_KEY);
+  }, []);
 
-  return (
-    <AuthContext.Provider value={{ user, login, logout, isLoading }}>
-      {children}
-    </AuthContext.Provider>
+  // useMemo evita recrear el objeto de contexto en cada render (ver StudentsContext).
+  const value = useMemo(
+    () => ({ user, login, logout, isLoading }),
+    [user, login, logout, isLoading]
   );
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {

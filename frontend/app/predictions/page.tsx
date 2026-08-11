@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import RiskChart from "../../components/RiskChart";
@@ -24,26 +25,23 @@ const RISK_STYLES = {
   },
 };
 
+const ORDER = { Alto: 0, Medio: 1, Bajo: 2 };
+
 export default function PredictionsPage() {
   const { students } = useStudents();
 
-  // Calcular distribución dinámica desde el contexto
-  const total = students.length;
-  const counts = { Bajo: 0, Medio: 0, Alto: 0 };
-  students.forEach((s) => {
-    counts[getRisk(s.grade, s.attendance)]++;
-  });
+  // Se calcula el riesgo de cada estudiante una sola vez y se reutiliza
+  // para la distribución, el orden y la tabla — evita recomputar getRisk
+  // varias veces por estudiante, y solo se vuelve a ejecutar si students cambia.
+  const { total, counts, sorted } = useMemo(() => {
+    const withRisk = students.map((s) => ({ ...s, risk: getRisk(s.grade, s.attendance) }));
+    const counts = { Bajo: 0, Medio: 0, Alto: 0 };
+    withRisk.forEach((s) => counts[s.risk]++);
+    const sorted = [...withRisk].sort((a, b) => ORDER[a.risk] - ORDER[b.risk]);
+    return { total: students.length, counts, sorted };
+  }, [students]);
 
-  const pct = (n: number) =>
-    total > 0 ? Math.round((n / total) * 100) : 0;
-
-  // Ordenar por riesgo: Alto primero
-  const ORDER = { Alto: 0, Medio: 1, Bajo: 2 };
-  const sorted = [...students].sort(
-    (a, b) =>
-      ORDER[getRisk(a.grade, a.attendance)] -
-      ORDER[getRisk(b.grade, b.attendance)]
-  );
+  const pct = (n: number) => (total > 0 ? Math.round((n / total) * 100) : 0);
 
   return (
     <div className="flex min-h-screen bg-[#F6EFE0]">
@@ -58,7 +56,6 @@ export default function PredictionsPage() {
             </h1>
             <p className="text-gray-400 mt-2">
               Clasificación automática basada en nota y asistencia.
-              {/* TODO Agosto: conectar al endpoint de inferencia ML */}
             </p>
           </div>
 
@@ -103,7 +100,7 @@ export default function PredictionsPage() {
                   <div>
                     <p className="text-red-400 font-semibold">Riesgo Alto</p>
                     <p className="text-gray-400 mt-0.5">
-                      Nota &lt; 65 <em>o</em> asistencia &lt; 70%. Requiere intervención inmediata.
+                      Nota &lt; 60 <em>o</em> asistencia &lt; 80%. Requiere intervención inmediata.
                     </p>
                   </div>
                 </div>
@@ -124,13 +121,6 @@ export default function PredictionsPage() {
                       Nota ≥ 80 y asistencia ≥ 85%. Desempeño estable.
                     </p>
                   </div>
-                </div>
-
-                <div className="mt-4 p-3 rounded-lg bg-[#F1E8D6] border border-gray-700">
-                  <p className="text-xs text-gray-500">
-                    ⚙️ <span className="text-gray-400">Agosto:</span> se integrará el endpoint de inferencia
-                    ML para predicciones basadas en múltiples variables.
-                  </p>
                 </div>
               </div>
             </div>
@@ -156,7 +146,6 @@ export default function PredictionsPage() {
                 </thead>
                 <tbody>
                   {sorted.map((s) => {
-                    const risk = getRisk(s.grade, s.attendance);
                     const status = getStatus(s.grade);
                     return (
                       <tr
@@ -182,8 +171,8 @@ export default function PredictionsPage() {
                           </span>
                         </td>
                         <td>
-                          <span className={`${RISK_STYLES[risk].badge} px-3 py-1 rounded-full text-xs font-medium`}>
-                            {risk}
+                          <span className={`${RISK_STYLES[s.risk].badge} px-3 py-1 rounded-full text-xs font-medium`}>
+                            {s.risk}
                           </span>
                         </td>
                       </tr>

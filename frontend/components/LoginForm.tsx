@@ -40,11 +40,17 @@ export default function LoginForm() {
     >
       {/* Logo / título */}
       <div className="text-center mb-8">
-        <h1 className="font-serif text-5xl font-bold tracking-tight bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
-          RAD
+        <div
+          className="w-20 h-20 rounded-full mx-auto flex items-center justify-center overflow-hidden"
+          style={{ backgroundColor: "#F9F8F6" }}
+        >
+          <img src="/brand/sofia-icon.png" alt="SOFÍA" className="w-20 h-20" />
+        </div>
+        <h1 className="font-serif text-4xl font-bold text-[#1F2E3D] mt-4 tracking-tight">
+          SOFÍA
         </h1>
         <p className="text-gray-400 text-sm mt-1 tracking-widest uppercase">
-          Risk Analysis Dashboard
+          Panel Académico
         </p>
       </div>
 
