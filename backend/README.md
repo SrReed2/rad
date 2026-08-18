@@ -33,3 +33,17 @@ El controlador de salones (routes/classrooms.py) implementa validaciones especí
 La conexión con la base de datos se encuentra integrada dentro del entorno de Docker. La URL de conexión utiliza variables dinámicas resueltas mediante el nombre del servicio de la base de datos definido en el archivo de orquestación (postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}), eliminando la dependencia de variables de entorno manuales en la máquina local.
 
 El archivo de arranque incluye la ejecución automática de la función de creación de tablas del ORM. Esto garantiza que el esquema relacional se despliegue de forma automática en el momento en que los contenedores se inicializan por primera vez.
+
+# API Backend - Gestión Académica & Predicción ML
+
+Backend desarrollado con FastAPI, PostgreSQL/SQLAlchemy y PyTorch para evaluación de riesgo académico.
+
+## Requisitos
+- Docker & Docker Compose
+- Python 3.10+ (para desarrollo local)
+
+## Instalación y Ejecución con Docker
+
+1. Construir la imagen:
+   ```bash
+   docker compose build
