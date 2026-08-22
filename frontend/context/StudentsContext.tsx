@@ -4,8 +4,11 @@ import {
   createContext,
   useContext,
   useState,
+  useEffect,
   ReactNode,
 } from "react";
+import { apiFetch } from "../lib/api";
+import { useAuth } from "./AuthContext";
 
 export interface Student {
   id: number;
@@ -18,42 +21,43 @@ export interface Student {
 
 interface StudentsContextType {
   students: Student[];
-  addStudent: (s: Omit<Student, "id">) => void;
-  updateStudent: (id: number, data: Partial<Omit<Student, "id">>) => void;
-  deleteStudent: (id: number) => void;
+  addStudent: (s: Omit<Student, "id">) => Promise<void>;
+  updateStudent: (id: number, data: Partial<Omit<Student, "id">>) => Promise<void>;
+  deleteStudent: (id: number) => Promise<void>;
 }
 
 const StudentsContext = createContext<StudentsContextType | null>(null);
 
-// Dataset inicial — en Agosto se reemplazará con fetch al endpoint real
-const INITIAL_STUDENTS: Student[] = [
-  { id: 1, name: "Ana López", grade: 89, attendance: 95, subject: "Matemáticas", period: "2024-I" },
-  { id: 2, name: "Carlos Ruiz", grade: 72, attendance: 80, subject: "Física", period: "2024-I" },
-  { id: 3, name: "María Torres", grade: 95, attendance: 99, subject: "Química", period: "2024-I" },
-  { id: 4, name: "Luis Pérez", grade: 60, attendance: 65, subject: "Biología", period: "2024-I" },
-  { id: 5, name: "José Martínez", grade: 45, attendance: 55, subject: "Historia", period: "2024-I" },
-  { id: 6, name: "Andrea Castillo", grade: 82, attendance: 91, subject: "Literatura", period: "2024-I" },
-  { id: 7, name: "Roberto Sánchez", grade: 78, attendance: 88, subject: "Matemáticas", period: "2024-I" },
-  { id: 8, name: "Laura Gómez", grade: 91, attendance: 97, subject: "Física", period: "2024-I" },
-  { id: 9, name: "Miguel Ángel Díaz", grade: 63, attendance: 71, subject: "Química", period: "2024-I" },
-  { id: 10, name: "Patricia Flores", grade: 55, attendance: 60, subject: "Biología", period: "2024-I" },
-];
-
 export function StudentsProvider({ children }: { children: ReactNode }) {
-  const [students, setStudents] = useState<Student[]>(INITIAL_STUDENTS);
+  const { user } = useAuth();
+  const [students, setStudents] = useState<Student[]>([]);
 
-  const addStudent = (data: Omit<Student, "id">) => {
-    const newId = students.length > 0 ? Math.max(...students.map((s) => s.id)) + 1 : 1;
-    setStudents((prev) => [...prev, { id: newId, ...data }]);
+  useEffect(() => {
+    if (!user) {
+      setStudents([]);
+      return;
+    }
+    apiFetch<Student[]>("/students/").then(setStudents).catch(console.error);
+  }, [user]);
+
+  const addStudent = async (data: Omit<Student, "id">) => {
+    const created = await apiFetch<Student>("/students/", {
+      method: "POST",
+      body: JSON.stringify({ ...data, email: `${data.name.toLowerCase().replace(/\s+/g, ".")}@student.local`, password: "change-me" }),
+    });
+    setStudents((prev) => [...prev, created]);
   };
 
-  const updateStudent = (id: number, data: Partial<Omit<Student, "id">>) => {
-    setStudents((prev) =>
-      prev.map((s) => (s.id === id ? { ...s, ...data } : s))
-    );
+  const updateStudent = async (id: number, data: Partial<Omit<Student, "id">>) => {
+    const updated = await apiFetch<Student>(`/students/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(data),
+    });
+    setStudents((prev) => prev.map((s) => (s.id === id ? updated : s)));
   };
 
-  const deleteStudent = (id: number) => {
+  const deleteStudent = async (id: number) => {
+    await apiFetch<void>(`/students/${id}`, { method: "DELETE" });
     setStudents((prev) => prev.filter((s) => s.id !== id));
   };
 

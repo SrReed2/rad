@@ -7,26 +7,23 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { apiFetch } from "../lib/api";
 
 interface User {
-  username: string;
-  role: "admin" | "docente";
+  id: number;
+  name: string;
+  email: string;
+  role: "admin" | "director" | "teacher" | "student";
 }
 
 interface AuthContextType {
   user: User | null;
-  login: (username: string, password: string) => Promise<boolean>;
+  login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
   isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
-
-// Credenciales demo — reemplazar con llamada real al backend
-const DEMO_USERS: Record<string, { password: string; role: "admin" | "docente" }> = {
-  admin: { password: "admin123", role: "admin" },
-  docente: { password: "rad2024", role: "docente" },
-};
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
@@ -46,22 +43,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const login = async (username: string, password: string): Promise<boolean> => {
-    // Simula llamada async al backend (sustituir por fetch real en Agosto)
-    await new Promise((r) => setTimeout(r, 400));
-
-    const found = DEMO_USERS[username.toLowerCase()];
-    if (found && found.password === password) {
-      const userData: User = { username, role: found.role };
-      setUser(userData);
-      localStorage.setItem("rad_user", JSON.stringify(userData));
+  const login = async (email: string, password: string): Promise<boolean> => {
+    try {
+      const result = await apiFetch<{ access_token: string; user: User }>("/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+      localStorage.setItem("rad_token", result.access_token);
+      localStorage.setItem("rad_user", JSON.stringify(result.user));
+      setUser(result.user);
       return true;
+    } catch {
+      localStorage.removeItem("rad_token");
+      setUser(null);
+      return false;
     }
-    return false;
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("rad_token");
     localStorage.removeItem("rad_user");
   };
 

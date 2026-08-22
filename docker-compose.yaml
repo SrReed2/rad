@@ -10,10 +10,15 @@ services:
     networks:
       - app-network
     working_dir: /app
+    environment:
+      DATABASE_URL: postgresql://raduser:1234@db:5432/rad_db
+      SECRET_KEY: change-this-in-production
   frontend:
     build: ./frontend
     ports:
       - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
     networks:
       - app-network
 

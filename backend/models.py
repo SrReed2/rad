@@ -10,6 +10,10 @@ class User(Base):
     email = Column(String, unique=True, nullable=False)
     password_hash = Column(String, nullable=False)
     role = Column(String, default="student")
+    grade = Column(Float, default=0, nullable=False)
+    attendance = Column(Float, default=0, nullable=False)
+    subject = Column(String, nullable=True)
+    period = Column(String, nullable=True)
 
 
 class Classroom(Base):

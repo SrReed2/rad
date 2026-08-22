@@ -20,6 +20,36 @@ class UserResponse(UserBase):
     class Config:
         from_attributes = True
 
+class StudentCreate(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    grade: float = 0
+    attendance: float = 0
+    subject: Optional[str] = None
+    period: Optional[str] = None
+
+class StudentUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[EmailStr] = None
+    grade: Optional[float] = None
+    attendance: Optional[float] = None
+    subject: Optional[str] = None
+    period: Optional[str] = None
+
+class StudentResponse(BaseModel):
+    id: int
+    name: str
+    email: EmailStr
+    role: str
+    grade: float
+    attendance: float
+    subject: Optional[str] = None
+    period: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
 # --- AULAS (CLASSROOMS) ---
 class ClassroomBase(BaseModel):
     name: str
@@ -67,11 +97,15 @@ class AttendanceResponse(AttendanceBase):
         from_attributes = True
 
 # --- PREDICCIONES Y RIESGO ---
-class RiskPredictionResponse(BaseModel):
+class RiskResult(BaseModel):
     student_id: int
-    risk_level: str  # Ejemplo: "bajo", "medio", "alto"
-    probability: float
-    factors: Optional[list] = None
+    risk_score: float
+    status: str
+
+class RiskPredictionResponse(BaseModel):
+    total_evaluated: int
+    is_simulated: bool
+    results: List[RiskResult]
 
     class Config:
         from_attributes = True

@@ -65,7 +65,7 @@ export default function StudentForm({
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -80,13 +80,18 @@ export default function StudentForm({
       period: form.period.trim() || undefined,
     };
 
-    if (editingStudent) {
-      updateStudent(editingStudent.id, data);
-      setSuccess(`✓ Estudiante "${data.name}" actualizado correctamente.`);
-      onCancelEdit?.();
-    } else {
-      addStudent(data);
-      setSuccess(`✓ Estudiante "${data.name}" registrado correctamente.`);
+    try {
+      if (editingStudent) {
+        await updateStudent(editingStudent.id, data);
+        setSuccess(`Estudiante "${data.name}" actualizado correctamente.`);
+        onCancelEdit?.();
+      } else {
+        await addStudent(data);
+        setSuccess(`Estudiante "${data.name}" registrado correctamente.`);
+      }
+    } catch (error) {
+      setSuccess(error instanceof Error ? error.message : "No se pudo guardar el estudiante.");
+      return;
     }
 
     setForm(EMPTY_FORM);

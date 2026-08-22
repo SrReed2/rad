@@ -8,7 +8,7 @@ export default function LoginForm() {
   const router = useRouter();
   const { login } = useAuth();
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,13 +17,13 @@ export default function LoginForm() {
     e.preventDefault();
     setError("");
 
-    if (!username.trim() || !password.trim()) {
+    if (!email.trim() || !password.trim()) {
       setError("Completa usuario y contraseña.");
       return;
     }
 
     setLoading(true);
-    const ok = await login(username.trim(), password);
+    const ok = await login(email.trim(), password);
     setLoading(false);
 
     if (ok) {
@@ -61,11 +61,11 @@ export default function LoginForm() {
           Usuario
         </label>
         <input
-          type="text"
-          autoComplete="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="admin"
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="correo@ejemplo.com"
           disabled={loading}
           className="
             w-full p-3 rounded-lg
@@ -123,10 +123,6 @@ export default function LoginForm() {
         )}
       </button>
 
-      {/* Credenciales demo */}
-      <p className="text-center text-xs text-gray-600 mt-6">
-        Demo: <span className="text-gray-400">admin / admin123</span>
-      </p>
     </form>
   );
 }

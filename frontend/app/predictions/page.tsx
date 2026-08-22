@@ -1,10 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import RiskChart from "../../components/RiskChart";
 import { useStudents } from "../../context/StudentsContext";
 import { getRisk, getStatus } from "../../components/StudentTable";
+import { apiFetch } from "../../lib/api";
+
+interface RiskResult {
+  student_id: number;
+  risk_score: number;
+  status: string;
+}
 
 const RISK_STYLES = {
   Bajo: {
@@ -26,12 +34,27 @@ const RISK_STYLES = {
 
 export default function PredictionsPage() {
   const { students } = useStudents();
+  const [riskResults, setRiskResults] = useState<RiskResult[]>([]);
+
+  useEffect(() => {
+    apiFetch<{ results: RiskResult[] }>("/predictions/risk")
+      .then((response) => setRiskResults(response.results))
+      .catch(console.error);
+  }, []);
+
+  const riskForStudent = (studentId: number, grade: number, attendance: number) => {
+    const prediction = riskResults.find((result) => result.student_id === studentId);
+    if (!prediction) return getRisk(grade, attendance);
+    if (prediction.risk_score > 0.66) return "Alto" as const;
+    if (prediction.risk_score > 0.33) return "Medio" as const;
+    return "Bajo" as const;
+  };
 
   // Calcular distribución dinámica desde el contexto
   const total = students.length;
   const counts = { Bajo: 0, Medio: 0, Alto: 0 };
   students.forEach((s) => {
-    counts[getRisk(s.grade, s.attendance)]++;
+    counts[riskForStudent(s.id, s.grade, s.attendance)]++;
   });
 
   const pct = (n: number) =>
@@ -41,8 +64,8 @@ export default function PredictionsPage() {
   const ORDER = { Alto: 0, Medio: 1, Bajo: 2 };
   const sorted = [...students].sort(
     (a, b) =>
-      ORDER[getRisk(a.grade, a.attendance)] -
-      ORDER[getRisk(b.grade, b.attendance)]
+      ORDER[riskForStudent(a.id, a.grade, a.attendance)] -
+      ORDER[riskForStudent(b.id, b.grade, b.attendance)]
   );
 
   return (
@@ -156,7 +179,7 @@ export default function PredictionsPage() {
                 </thead>
                 <tbody>
                   {sorted.map((s) => {
-                    const risk = getRisk(s.grade, s.attendance);
+                    const risk = riskForStudent(s.id, s.grade, s.attendance);
                     const status = getStatus(s.grade);
                     return (
                       <tr

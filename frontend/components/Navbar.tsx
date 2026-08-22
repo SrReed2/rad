@@ -31,14 +31,14 @@ export default function Navbar() {
         {/* Usuario */}
         {user && (
           <div className="text-right">
-            <p className="text-sm font-medium text-[#F1E9D8] capitalize">{user.username}</p>
+            <p className="text-sm font-medium text-[#F1E9D8] capitalize">{user.name}</p>
             <p className="text-xs text-[#96876E] capitalize">{user.role}</p>
           </div>
         )}
 
         {/* Avatar */}
         <div className="w-9 h-9 rounded-full bg-[#7FB8C9]/20 border border-[#7FB8C9]/40 flex items-center justify-center text-[#7FB8C9] font-bold text-sm">
-          {user?.username?.[0]?.toUpperCase() ?? "R"}
+          {user?.name?.[0]?.toUpperCase() ?? "R"}
         </div>
       </div>
     </nav>

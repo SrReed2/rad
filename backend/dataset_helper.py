@@ -14,7 +14,7 @@ def prepare_student_features(db: Session):
         if student_grades:
             grade_avg = sum([g.score for g in student_grades]) / len(student_grades)
         else:
-            grade_avg = 0.0
+            grade_avg = student.grade
 
         total_days = db.query(models.Attendance).filter(models.Attendance.student_id == student.id).count()
         if total_days > 0:
@@ -24,7 +24,7 @@ def prepare_student_features(db: Session):
             ).count()
             attendance_rate = presents / total_days
         else:
-            attendance_rate = 1.0
+            attendance_rate = student.attendance / 100
 
         raw_features.append([grade_avg, attendance_rate])
         student_ids.append(student.id)

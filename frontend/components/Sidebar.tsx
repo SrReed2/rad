@@ -75,7 +75,7 @@ export default function Sidebar() {
           <div className="bg-[#24384A] rounded-lg p-3 border border-[#2C3D4E] flex items-center justify-between">
             <div>
               <p className="text-xs text-[#B9AD97]">Sesión</p>
-              <p className="text-sm text-[#F1E9D8] font-medium capitalize">{user.username}</p>
+              <p className="text-sm text-[#F1E9D8] font-medium capitalize">{user.name}</p>
               <p className="text-xs text-[#96876E] capitalize">{user.role}</p>
             </div>
             <button

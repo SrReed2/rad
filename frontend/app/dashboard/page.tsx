@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import StatCard from "../../components/StatCard";
@@ -5,9 +7,22 @@ import AttendanceChart from "../../components/AttendanceChart";
 import RiskChart from "../../components/RiskChart";
 import StudentTable from "../../components/StudentTable";
 
-import { stats } from "../../data/mockData";
+import { useStudents } from "../../context/StudentsContext";
+import { getRisk } from "../../components/StudentTable";
 
 export default function DashboardPage() {
+  const { students } = useStudents();
+  const averageAttendance = students.length
+    ? Math.round(students.reduce((sum, student) => sum + student.attendance, 0) / students.length)
+    : 0;
+  const highRisk = students.filter((student) => getRisk(student.grade, student.attendance) === "Alto").length;
+  const approved = students.filter((student) => student.grade >= 70).length;
+  const stats = [
+    { title: "Estudiantes", value: students.length },
+    { title: "Asistencia", value: `${averageAttendance}%` },
+    { title: "Riesgo Alto", value: `${students.length ? Math.round((highRisk / students.length) * 100) : 0}%` },
+    { title: "Aprobación", value: `${students.length ? Math.round((approved / students.length) * 100) : 0}%` },
+  ];
   return (
     <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
