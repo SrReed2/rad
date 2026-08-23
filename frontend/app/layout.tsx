@@ -17,7 +17,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "SOFÍA - Panel de Análisis Académico",
+  title: "SOFIA",
   description: "Plataforma de análisis de riesgo académico estudiantil",
 };
 

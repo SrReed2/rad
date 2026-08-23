@@ -1,21 +1,21 @@
+"use client";
+
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import StatCard from "../../components/StatCard";
 import AttendanceChart from "../../components/AttendanceChart";
 import RiskChart from "../../components/RiskChart";
 import StudentTable from "../../components/StudentTable";
+import ProtectedRoute from "../../components/ProtectedRoute";
+import SubjectDashboard from "../../components/SubjectDashboard";
+import { useAuth, ROLE_SUBJECTS } from "../../context/AuthContext";
 
 import { stats } from "../../data/mockData";
 
-export default function DashboardPage() {
+// Dashboard original del Director — sin cambios respecto a la versión previa.
+function DirectorDashboard() {
   return (
-    <div className="flex min-h-screen bg-[#F6EFE0]">
-      <Sidebar />
-
-      <div className="flex-1">
-        <Navbar />
-
-        <main className="p-8">
+    <>
 
           {/* HEADER */}
 
@@ -128,9 +128,29 @@ export default function DashboardPage() {
 
           {/* TABLA — vista general, solo lectura. Editar/eliminar vive en Estudiantes. */}
           <StudentTable readOnly />
+    </>
+  );
+}
 
-        </main>
+export default function DashboardPage() {
+  const { user } = useAuth();
+  const subject = user ? ROLE_SUBJECTS[user.role] : null;
+
+  return (
+    <ProtectedRoute
+      allowedRoles={["director", "profesor_matematicas", "profesor_ingles", "profesor_quimica"]}
+    >
+      <div className="flex min-h-screen bg-[#F6EFE0]">
+        <Sidebar />
+
+        <div className="flex-1">
+          <Navbar />
+
+          <main className="p-8">
+            {subject ? <SubjectDashboard subject={subject} /> : <DirectorDashboard />}
+          </main>
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }

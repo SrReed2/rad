@@ -8,6 +8,8 @@ interface StudentTableProps {
   onEdit?: (student: Student) => void;
   /** Vista de solo lectura — oculta la columna de Acciones (editar/eliminar). Úsalo en el Dashboard general. */
   readOnly?: boolean;
+  /** Lista ya filtrada a mostrar (p. ej. solo Matemáticas). Si se omite, usa el listado completo del contexto. */
+  students?: Student[];
 }
 
 export function getRisk(grade: number, attendance: number): "Alto" | "Medio" | "Bajo" {
@@ -31,8 +33,9 @@ const STATUS_STYLES = {
   Reprobado: "bg-red-500/20 text-red-400",
 };
 
-export default function StudentTable({ onEdit, readOnly = false }: StudentTableProps) {
-  const { students, deleteStudent } = useStudents();
+export default function StudentTable({ onEdit, readOnly = false, students: studentsProp }: StudentTableProps) {
+  const { students: allStudents, deleteStudent } = useStudents();
+  const students = studentsProp ?? allStudents;
   const [search, setSearch] = useState("");
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<keyof Student>("id");

@@ -39,6 +39,8 @@ const INITIAL_STUDENTS: Student[] = [
   { id: 8, name: "Laura Gómez", grade: 91, attendance: 97, subject: "Física", period: "2024-I" },
   { id: 9, name: "Miguel Ángel Díaz", grade: 63, attendance: 71, subject: "Química", period: "2024-I" },
   { id: 10, name: "Patricia Flores", grade: 55, attendance: 60, subject: "Biología", period: "2024-I" },
+  { id: 11, name: "Fernanda Ríos", grade: 84, attendance: 90, subject: "Inglés", period: "2024-I" },
+  { id: 12, name: "Diego Herrera", grade: 68, attendance: 76, subject: "Inglés", period: "2024-I" },
 ];
 
 export function StudentsProvider({ children }: { children: ReactNode }) {

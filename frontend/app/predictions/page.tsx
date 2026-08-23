@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import RiskChart from "../../components/RiskChart";
+import ProtectedRoute from "../../components/ProtectedRoute";
 import { useStudents } from "../../context/StudentsContext";
 import { getRisk, getStatus } from "../../components/StudentTable";
 
@@ -44,6 +45,7 @@ export default function PredictionsPage() {
   const pct = (n: number) => (total > 0 ? Math.round((n / total) * 100) : 0);
 
   return (
+    <ProtectedRoute allowedRoles={["director"]}>
     <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
       <div className="flex-1">
@@ -185,5 +187,6 @@ export default function PredictionsPage() {
         </main>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }

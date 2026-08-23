@@ -2,20 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useAuth } from "../context/AuthContext";
+import { useAuth, Role } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
 
-const NAV_ITEMS = [
-  { label: "Dashboard", href: "/dashboard", icon: "▦" },
-  { label: "Estudiantes", href: "/students", icon: "◈" },
-  { label: "Asistencia", href: "/attendance", icon: "◷" },
-  { label: "Predicciones", href: "/predictions", icon: "◉" },
+const ALL_ROLES: Role[] = ["director", "profesor_matematicas", "profesor_ingles", "profesor_quimica"];
+
+const ALL_NAV_ITEMS: { label: string; href: string; icon: string; roles: Role[] }[] = [
+  { label: "Dashboard", href: "/dashboard", icon: "▦", roles: ALL_ROLES },
+  { label: "Estudiantes", href: "/students", icon: "◈", roles: ["director"] },
+  { label: "Asistencia", href: "/attendance", icon: "◷", roles: ALL_ROLES },
+  { label: "Predicciones", href: "/predictions", icon: "◉", roles: ["director"] },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
   const { user, logout } = useAuth();
   const router = useRouter();
+
+  // Menú filtrado dinámicamente según el rol de la sesión activa.
+  const NAV_ITEMS = ALL_NAV_ITEMS.filter((item) => user && item.roles.includes(user.role));
 
   const handleLogout = () => {
     logout();

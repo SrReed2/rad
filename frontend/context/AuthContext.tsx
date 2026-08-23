@@ -10,9 +10,15 @@ import {
   ReactNode,
 } from "react";
 
+export type Role =
+  | "director"
+  | "profesor_matematicas"
+  | "profesor_ingles"
+  | "profesor_quimica";
+
 interface User {
   username: string;
-  role: "admin" | "docente";
+  role: Role;
 }
 
 interface AuthContextType {
@@ -27,9 +33,19 @@ const AuthContext = createContext<AuthContextType | null>(null);
 const STORAGE_KEY = "sofia_user";
 
 // Credenciales demo — reemplazar con llamada real al backend
-const DEMO_USERS: Record<string, { password: string; role: "admin" | "docente" }> = {
-  admin: { password: "admin123", role: "admin" },
-  docente: { password: "sofia2024", role: "docente" },
+const DEMO_USERS: Record<string, { password: string; role: Role }> = {
+  director: { password: "director123", role: "director" },
+  mathprof: { password: "mathprof123", role: "profesor_matematicas" },
+  engprof: { password: "engprof123", role: "profesor_ingles" },
+  quimprof: { password: "quimprof123", role: "profesor_quimica" },
+};
+
+// Materia asociada a cada rol docente — director es null porque ve todas.
+export const ROLE_SUBJECTS: Record<Role, string | null> = {
+  director: null,
+  profesor_matematicas: "Matemáticas",
+  profesor_ingles: "Inglés",
+  profesor_quimica: "Química",
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {

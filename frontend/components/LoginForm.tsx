@@ -71,7 +71,7 @@ export default function LoginForm() {
           autoComplete="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="admin"
+          placeholder="director"
           disabled={loading}
           className="
             w-full p-3 rounded-lg
@@ -130,8 +130,14 @@ export default function LoginForm() {
       </button>
 
       {/* Credenciales demo */}
-      <p className="text-center text-xs text-gray-600 mt-6">
-        Demo: <span className="text-gray-400">admin / admin123</span>
+      <p className="text-center text-xs text-gray-600 mt-6 leading-relaxed">
+        Director: <span className="text-gray-400">director / director123</span>
+        <br />
+        Prof. Matemáticas: <span className="text-gray-400">mathprof / mathprof123</span>
+        <br />
+        Prof. Inglés: <span className="text-gray-400">engprof / engprof123</span>
+        <br />
+        Prof. Química: <span className="text-gray-400">quimprof / quimprof123</span>
       </p>
     </form>
   );

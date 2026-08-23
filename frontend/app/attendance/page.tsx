@@ -4,7 +4,9 @@ import { useMemo, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import AttendanceChart from "../../components/AttendanceChart";
+import ProtectedRoute from "../../components/ProtectedRoute";
 import { useStudents } from "../../context/StudentsContext";
+import { useAuth, ROLE_SUBJECTS } from "../../context/AuthContext";
 import { getRisk } from "../../components/StudentTable";
 
 const RISK_BADGE: Record<string, string> = {
@@ -26,7 +28,16 @@ const getAttBar = (val: number) => {
 };
 
 export default function AttendancePage() {
-  const { students } = useStudents();
+  const { students: allStudents } = useStudents();
+  const { user } = useAuth();
+  const subjectFilter = user ? ROLE_SUBJECTS[user.role] : null;
+
+  // Si el rol tiene materia asignada (cualquier profesor), solo ve su propia clase.
+  const students = useMemo(
+    () => (subjectFilter ? allStudents.filter((s) => s.subject === subjectFilter) : allStudents),
+    [allStudents, subjectFilter]
+  );
+
   const [search, setSearch] = useState("");
   const [filterRisk, setFilterRisk] = useState<"Todos" | "Alto" | "Medio" | "Bajo">("Todos");
 
@@ -55,6 +66,9 @@ export default function AttendancePage() {
   }, [students]);
 
   return (
+    <ProtectedRoute
+      allowedRoles={["director", "profesor_matematicas", "profesor_ingles", "profesor_quimica"]}
+    >
     <div className="flex min-h-screen bg-[#F6EFE0]">
       <Sidebar />
       <div className="flex-1">
@@ -63,10 +77,12 @@ export default function AttendancePage() {
           {/* Header */}
           <div className="mb-8">
             <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
-              Asistencia
+              Asistencia{subjectFilter ? ` — ${subjectFilter}` : ""}
             </h1>
             <p className="text-gray-400 mt-2">
-              Control de asistencia y seguimiento por estudiante.
+              {subjectFilter
+                ? "Registro de asistencia de tu clase, solo lectura."
+                : "Control de asistencia y seguimiento por estudiante."}
             </p>
           </div>
 
@@ -171,5 +187,6 @@ export default function AttendancePage() {
         </main>
       </div>
     </div>
+    </ProtectedRoute>
   );
 }
