@@ -1,13 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import AttendanceChart from "../../components/AttendanceChart";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import { useStudents } from "../../context/StudentsContext";
 import { useAuth, ROLE_SUBJECTS } from "../../context/AuthContext";
 import { getRisk } from "../../components/StudentTable";
+
+// Code splitting: chart.js queda en un chunk separado del bundle principal.
+const AttendanceChart = dynamic(() => import("../../components/AttendanceChart"), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-white p-6 rounded-xl border border-gray-800 h-[300px] animate-pulse" />
+  ),
+});
 
 const RISK_BADGE: Record<string, string> = {
   Bajo: "bg-cyan-500/20 text-cyan-400",

@@ -1,1 +1,9 @@
-{}
+{
+  "[project]/frontend/components/SofiaAssistant.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/frontend/components/SofiaAssistant.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/frontend_17532154._.js",
+      "static/chunks/frontend_components_SofiaAssistant_tsx_55594a6d._.js"
+    ]
+  }
+}

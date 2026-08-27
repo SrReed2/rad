@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import SearchBar from "./SearchBar";
 import { useStudents, Student } from "../context/StudentsContext";
 
@@ -50,18 +50,25 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
     }
   };
 
-  const filtered = students
-    .filter((s) =>
-      s.name.toLowerCase().includes(search.toLowerCase()) ||
-      (s.subject ?? "").toLowerCase().includes(search.toLowerCase())
-    )
-    .sort((a, b) => {
-      const va = a[sortBy] ?? "";
-      const vb = b[sortBy] ?? "";
-      if (va < vb) return sortDir === "asc" ? -1 : 1;
-      if (va > vb) return sortDir === "asc" ? 1 : -1;
-      return 0;
-    });
+  // useMemo: antes se filtraba y ordenaba en cada render (p. ej. al abrir el
+  // modal de confirmar eliminación), aunque ni students ni los criterios de
+  // filtro/orden hubieran cambiado. Ahora solo se recalcula si cambian.
+  const filtered = useMemo(
+    () =>
+      students
+        .filter((s) =>
+          s.name.toLowerCase().includes(search.toLowerCase()) ||
+          (s.subject ?? "").toLowerCase().includes(search.toLowerCase())
+        )
+        .sort((a, b) => {
+          const va = a[sortBy] ?? "";
+          const vb = b[sortBy] ?? "";
+          if (va < vb) return sortDir === "asc" ? -1 : 1;
+          if (va > vb) return sortDir === "asc" ? 1 : -1;
+          return 0;
+        }),
+    [students, search, sortBy, sortDir]
+  );
 
   const confirmDelete = (id: number) => setConfirmDeleteId(id);
   const cancelDelete = () => setConfirmDeleteId(null);

@@ -4,6 +4,8 @@ import { Fraunces } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
 import { StudentsProvider } from "../context/StudentsContext";
+import { SofiaPanelProvider } from "../context/SofiaPanelContext";
+import SofiaPanelHost from "../components/SofiaPanelHost";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -31,7 +33,10 @@ export default function RootLayout({
       <body className={`${geist.className} ${fraunces.variable} bg-[#F6EFE0] text-[#26313D]`}>
         <AuthProvider>
           <StudentsProvider>
-            {children}
+            <SofiaPanelProvider>
+              {children}
+              <SofiaPanelHost />
+            </SofiaPanelProvider>
           </StudentsProvider>
         </AuthProvider>
       </body>

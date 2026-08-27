@@ -1,12 +1,20 @@
 "use client";
 
 import { useMemo } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import RiskChart from "../../components/RiskChart";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import { useStudents } from "../../context/StudentsContext";
 import { getRisk, getStatus } from "../../components/StudentTable";
+
+// Code splitting: chart.js queda en un chunk separado del bundle principal.
+const RiskChart = dynamic(() => import("../../components/RiskChart"), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-white p-6 rounded-xl border border-gray-800 h-[300px] animate-pulse" />
+  ),
+});
 
 const RISK_STYLES = {
   Bajo: {

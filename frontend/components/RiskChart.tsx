@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -15,10 +16,15 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function RiskChart() {
   const { students } = useStudents();
 
-  const counts = { Bajo: 0, Medio: 0, Alto: 0 };
-  students.forEach((s) => {
-    counts[getRisk(s.grade, s.attendance)]++;
-  });
+  // useMemo: evita recalcular el conteo de riesgo en cada render;
+  // solo se recalcula si cambia la lista de estudiantes.
+  const counts = useMemo(() => {
+    const c = { Bajo: 0, Medio: 0, Alto: 0 };
+    students.forEach((s) => {
+      c[getRisk(s.grade, s.attendance)]++;
+    });
+    return c;
+  }, [students]);
 
   const data = {
     labels: ["Bajo", "Medio", "Alto"],

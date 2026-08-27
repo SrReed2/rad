@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth, Role } from "../context/AuthContext";
@@ -34,9 +35,12 @@ export default function Sidebar() {
         className="flex items-center gap-3 pl-3 pr-5 py-3 border-b border-[#2C3D4E]"
         style={{ backgroundColor: "#F9F8F6" }}
       >
-        <img
+        <Image
           src="/brand/sofia-icon.png"
           alt="SOFÍA"
+          width={44}
+          height={44}
+          priority
           className="w-11 h-11 rounded-full shrink-0"
         />
         <div className="leading-tight">

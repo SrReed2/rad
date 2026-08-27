@@ -1,1 +1,17 @@
-{}
+{
+  "[project]/frontend/components/AttendanceChart.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/frontend/components/AttendanceChart.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/9e883_1183ebac._.js",
+      "static/chunks/frontend_components_AttendanceChart_tsx_531811fd._.js",
+      "static/chunks/frontend_components_AttendanceChart_tsx_167fe716._.js"
+    ]
+  },
+  "[project]/frontend/components/SofiaAssistant.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/frontend/components/SofiaAssistant.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/frontend_17532154._.js",
+      "static/chunks/frontend_components_SofiaAssistant_tsx_55594a6d._.js"
+    ]
+  }
+}

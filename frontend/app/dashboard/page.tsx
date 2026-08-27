@@ -1,16 +1,29 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import StatCard from "../../components/StatCard";
-import AttendanceChart from "../../components/AttendanceChart";
-import RiskChart from "../../components/RiskChart";
 import StudentTable from "../../components/StudentTable";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import SubjectDashboard from "../../components/SubjectDashboard";
 import { useAuth, ROLE_SUBJECTS } from "../../context/AuthContext";
 
 import { stats } from "../../data/mockData";
+
+// Code splitting: chart.js/react-chartjs-2 se cargan en un chunk aparte,
+// solo cuando el dashboard se monta, en vez de ir en el bundle principal.
+const ChartSkeleton = () => (
+  <div className="bg-white p-6 rounded-xl border border-gray-800 h-[300px] animate-pulse" />
+);
+const AttendanceChart = dynamic(() => import("../../components/AttendanceChart"), {
+  ssr: false,
+  loading: ChartSkeleton,
+});
+const RiskChart = dynamic(() => import("../../components/RiskChart"), {
+  ssr: false,
+  loading: ChartSkeleton,
+});
 
 // Dashboard original del Director — sin cambios respecto a la versión previa.
 function DirectorDashboard() {

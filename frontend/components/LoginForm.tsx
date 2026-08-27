@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 
@@ -44,7 +45,14 @@ export default function LoginForm() {
           className="w-20 h-20 rounded-full mx-auto flex items-center justify-center overflow-hidden"
           style={{ backgroundColor: "#F9F8F6" }}
         >
-          <img src="/brand/sofia-icon.png" alt="SOFÍA" className="w-20 h-20" />
+          <Image
+            src="/brand/sofia-icon.png"
+            alt="SOFÍA"
+            width={80}
+            height={80}
+            priority
+            className="w-20 h-20"
+          />
         </div>
         <h1 className="font-serif text-4xl font-bold text-[#1F2E3D] mt-4 tracking-tight">
           SOFÍA
