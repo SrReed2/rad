@@ -17,8 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
-app.include_router(classrooms.router)
+app.include_router(auth.router, prefix="/auth", tags=["Auth"])
+app.include_router(classrooms.router, prefix="/classrooms", tags=["Classrooms"])
 app.include_router(academic.router)
 app.include_router(predictions.router)
 app.include_router(students.router)

@@ -30,10 +30,10 @@ def prepare_student_features(db: Session):
         student_ids.append(student.id)
 
     if not raw_features:
-        return np.array([]), np.array([])
+        return np.array([]), np.array([]), np.array([])
 
     X_raw = np.array(raw_features, dtype=np.float32)
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X_raw)
 
-    return X_scaled, np.array(student_ids)
+    return X_scaled, X_raw, np.array(student_ids)

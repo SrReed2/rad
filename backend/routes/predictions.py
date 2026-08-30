@@ -17,12 +17,12 @@ def get_students_risk(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_user)
 ):
-    X_scaled, student_ids = prepare_student_features(db)
+    X_scaled, X_raw, student_ids = prepare_student_features(db)
 
     if X_scaled.size == 0:
         raise HTTPException(status_code=404, detail="No hay datos de estudiantes para evaluar")
 
-    predictions, is_simulated = predict_risk(X_scaled)
+    predictions, is_simulated = predict_risk(X_scaled, X_raw)
 
     results = []
     for idx, risk_score in zip(student_ids, predictions):

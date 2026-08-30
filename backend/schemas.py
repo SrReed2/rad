@@ -2,17 +2,16 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 from datetime import date
 
-# --- USUARIOS ---
 class UserBase(BaseModel):
     name: str
-    email: str
+    email: EmailStr
     role: Optional[str] = "student"
 
 class UserCreate(UserBase):
     password: str
 
 class UserLogin(BaseModel):
-    email: str
+    email: EmailStr
     password: str
 
 class UserResponse(UserBase):
@@ -64,7 +63,8 @@ class ClassroomResponse(ClassroomBase):
     class Config:
         from_attributes = True
 
-# --- CALIFICACIONES (GRADES) ---
+
+
 class GradeBase(BaseModel):
     score: float
     evaluation_name: Optional[str] = None
@@ -80,17 +80,19 @@ class GradeResponse(GradeBase):
     class Config:
         from_attributes = True
 
-# --- ASISTENCIA (ATTENDANCE) ---
+
 class AttendanceBase(BaseModel):
-    date: date
+    date: Optional[date] = None
     is_present: bool = True
 
 class AttendanceCreate(AttendanceBase):
     student_id: int
     classroom_id: int
 
-class AttendanceResponse(AttendanceBase):
+class AttendanceResponse(BaseModel):
     id: int
+    date: date
+    is_present: bool
     student_id: int
     classroom_id: int
     class Config:

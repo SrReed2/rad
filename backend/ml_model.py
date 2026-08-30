@@ -20,10 +20,11 @@ class StudentRiskModel(nn.Module):
 
 MODEL_PATH = "student_model.pth"
 
-def predict_risk(features):
+def predict_risk(features_scaled, features_raw=None):
     if not os.path.exists(MODEL_PATH):
+        raw_data = features_raw if features_raw is not None else features_scaled
         predictions = []
-        for feat in features:
+        for feat in raw_data:
             grade_avg, attendance_rate = feat[0], feat[1]
             risk = 1.0 - ((grade_avg / 100.0) * 0.6 + attendance_rate * 0.4)
             predictions.append(float(np.clip(risk, 0.0, 1.0)))
@@ -35,9 +36,9 @@ def predict_risk(features):
         model.eval()
 
         with torch.no_grad():
-            inputs = torch.tensor(features, dtype=torch.float32)
+            inputs = torch.tensor(features_scaled, dtype=torch.float32)
             predictions = model(inputs)
             return predictions.numpy().flatten(), False
     except Exception:
-        predictions = [0.5 for _ in range(len(features))]
+        predictions = [0.5 for _ in range(len(features_scaled))]
         return np.array(predictions), True
