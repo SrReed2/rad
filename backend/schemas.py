@@ -98,7 +98,7 @@ class AttendanceResponse(BaseModel):
     class Config:
         from_attributes = True
 
-# --- PREDICCIONES Y RIESGO ---
+
 class RiskResult(BaseModel):
     student_id: int
     risk_score: float
