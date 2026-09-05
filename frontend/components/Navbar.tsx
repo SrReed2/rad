@@ -16,12 +16,12 @@ export default function Navbar() {
   });
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#1F2E3D] border-b border-[#2C3D4E] px-8 py-4 flex justify-between items-center">
+    <nav className="sticky top-0 z-50 bg-[#0D2B45] border-b border-[#1E3A52] px-8 py-4 flex justify-between items-center">
       <div>
-        <h1 className="text-lg font-semibold text-[#F1E9D8]">
+        <h1 className="text-lg font-semibold text-[#F7F6F3]">
           Dashboard Académico
         </h1>
-        <p className="text-xs text-[#96876E] capitalize">{today}</p>
+        <p className="text-xs text-[#7C8C9A] capitalize">{today}</p>
       </div>
 
       <div className="flex items-center gap-4">
@@ -38,21 +38,21 @@ export default function Navbar() {
         </button>
 
         {/* Indicador online */}
-        <span className="hidden sm:flex items-center gap-1.5 text-xs text-[#7FB8C9]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#7FB8C9] animate-pulse" />
+        <span className="hidden sm:flex items-center gap-1.5 text-xs text-[#C89D4E]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C89D4E] animate-pulse" />
           Online
         </span>
 
         {/* Usuario */}
         {user && (
           <div className="text-right">
-            <p className="text-sm font-medium text-[#F1E9D8] capitalize">{user.username}</p>
-            <p className="text-xs text-[#96876E] capitalize">{user.role}</p>
+            <p className="text-sm font-medium text-[#F7F6F3] capitalize">{user.username}</p>
+            <p className="text-xs text-[#7C8C9A] capitalize">{user.role}</p>
           </div>
         )}
 
         {/* Avatar */}
-        <div className="w-9 h-9 rounded-full bg-[#7FB8C9]/20 border border-[#7FB8C9]/40 flex items-center justify-center text-[#7FB8C9] font-bold text-sm">
+        <div className="w-9 h-9 rounded-full bg-[#C89D4E]/20 border border-[#C89D4E]/40 flex items-center justify-center text-[#C89D4E] font-bold text-sm">
           {user?.username?.[0]?.toUpperCase() ?? "R"}
         </div>
       </div>

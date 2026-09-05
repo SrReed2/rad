@@ -30,7 +30,7 @@ export default function SubjectDashboard({ subject }: SubjectDashboardProps) {
   return (
     <>
       <div className="mb-8">
-        <h1 className="font-serif text-5xl font-bold bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
+        <h1 className="font-serif text-5xl font-bold bg-gradient-to-r from-[#0D2B45] to-[#C89D4E] bg-clip-text text-transparent">
           Dashboard — {subject}
         </h1>
         <p className="text-gray-400 mt-2">

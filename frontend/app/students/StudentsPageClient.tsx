@@ -26,7 +26,7 @@ export default function StudentsPageClient() {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
         <div className="bg-white p-5 rounded-xl border border-gray-800">
           <p className="text-gray-400 text-sm">Total registrados</p>
-          <h2 className="text-3xl font-bold text-[#26313D] mt-1">{totalStudents}</h2>
+          <h2 className="text-3xl font-bold text-[#0D2B45] mt-1">{totalStudents}</h2>
         </div>
         <div className="bg-white p-5 rounded-xl border border-red-500/20">
           <p className="text-gray-400 text-sm">Riesgo Alto</p>

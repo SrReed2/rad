@@ -29,12 +29,12 @@ function Navbar() {
     });
     var _user_username__toUpperCase;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "sticky top-0 z-50 bg-[#1F2E3D] border-b border-[#2C3D4E] px-8 py-4 flex justify-between items-center",
+        className: "sticky top-0 z-50 bg-[#0D2B45] border-b border-[#1E3A52] px-8 py-4 flex justify-between items-center",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "text-lg font-semibold text-[#F1E9D8]",
+                        className: "text-lg font-semibold text-[#F7F6F3]",
                         children: "Dashboard Académico"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/Navbar.tsx",
@@ -42,7 +42,7 @@ function Navbar() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xs text-[#96876E] capitalize",
+                        className: "text-xs text-[#7C8C9A] capitalize",
                         children: today
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/Navbar.tsx",
@@ -80,10 +80,10 @@ function Navbar() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "hidden sm:flex items-center gap-1.5 text-xs text-[#7FB8C9]",
+                        className: "hidden sm:flex items-center gap-1.5 text-xs text-[#C89D4E]",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "w-1.5 h-1.5 rounded-full bg-[#7FB8C9] animate-pulse"
+                                className: "w-1.5 h-1.5 rounded-full bg-[#C89D4E] animate-pulse"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Navbar.tsx",
                                 lineNumber: 42,
@@ -100,7 +100,7 @@ function Navbar() {
                         className: "text-right",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-sm font-medium text-[#F1E9D8] capitalize",
+                                className: "text-sm font-medium text-[#F7F6F3] capitalize",
                                 children: user.username
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Navbar.tsx",
@@ -108,7 +108,7 @@ function Navbar() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xs text-[#96876E] capitalize",
+                                className: "text-xs text-[#7C8C9A] capitalize",
                                 children: user.role
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Navbar.tsx",
@@ -122,7 +122,7 @@ function Navbar() {
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-9 h-9 rounded-full bg-[#7FB8C9]/20 border border-[#7FB8C9]/40 flex items-center justify-center text-[#7FB8C9] font-bold text-sm",
+                        className: "w-9 h-9 rounded-full bg-[#C89D4E]/20 border border-[#C89D4E]/40 flex items-center justify-center text-[#C89D4E] font-bold text-sm",
                         children: (_user_username__toUpperCase = user === null || user === void 0 ? void 0 : (_user_username = user.username) === null || _user_username === void 0 ? void 0 : (_user_username_ = _user_username[0]) === null || _user_username_ === void 0 ? void 0 : _user_username_.toUpperCase()) !== null && _user_username__toUpperCase !== void 0 ? _user_username__toUpperCase : "R"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/Navbar.tsx",
@@ -223,12 +223,12 @@ function Sidebar() {
         router.push("/login");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
-        className: "w-72 min-h-screen bg-[#1F2E3D] border-r border-[#2C3D4E] flex flex-col",
+        className: "w-72 min-h-screen bg-[#0D2B45] border-r border-[#1E3A52] flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center gap-3 pl-3 pr-5 py-3 border-b border-[#2C3D4E]",
+                className: "flex items-center gap-3 pl-3 pr-5 py-3 border-b border-[#1E3A52]",
                 style: {
-                    backgroundColor: "#F9F8F6"
+                    backgroundColor: "#FFFFFF"
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -247,7 +247,7 @@ function Sidebar() {
                         className: "leading-tight",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "font-serif text-xl font-bold text-[#1F2E3D]",
+                                className: "font-serif text-xl font-bold text-[#0D2B45]",
                                 children: "SOFÍA"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -255,7 +255,7 @@ function Sidebar() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-[9px] text-[#6B6152] tracking-widest uppercase",
+                                className: "text-[9px] text-[#506577] tracking-widest uppercase",
                                 children: "Panel Académico"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -280,7 +280,7 @@ function Sidebar() {
                     const isActive = pathname === item.href;
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: item.href,
-                        className: "\n                flex items-center gap-3 px-5 py-3.5 rounded-lg text-sm font-medium\n                transition-all duration-200\n                ".concat(isActive ? "bg-[#7FB8C9]/15 text-[#7FB8C9] border border-[#7FB8C9]/30" : "text-[#B9AD97] hover:text-[#F1E9D8] hover:bg-[#2C3F54]", "\n              "),
+                        className: "\n                flex items-center gap-3 px-5 py-3.5 rounded-lg text-sm font-medium\n                transition-all duration-200\n                ".concat(isActive ? "bg-[#C89D4E]/15 text-[#C89D4E] border border-[#C89D4E]/30" : "text-[#A5B0BA] hover:text-[#F7F6F3] hover:bg-[#233E56]", "\n              "),
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-base",
@@ -292,7 +292,7 @@ function Sidebar() {
                             }, this),
                             item.label,
                             isActive && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "ml-auto w-1.5 h-1.5 rounded-full bg-[#7FB8C9]"
+                                className: "ml-auto w-1.5 h-1.5 rounded-full bg-[#C89D4E]"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
                                 lineNumber: 75,
@@ -314,10 +314,10 @@ function Sidebar() {
                 className: "mt-auto p-6 space-y-3",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-[#2C3F54] rounded-lg p-4 border border-[#37495B]",
+                        className: "bg-[#233E56] rounded-lg p-4 border border-[#344D63]",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xs text-[#B9AD97] mb-1",
+                                className: "text-xs text-[#A5B0BA] mb-1",
                                 children: "Estado del Sistema"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -325,7 +325,7 @@ function Sidebar() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-[#7FB8C9] font-semibold text-sm",
+                                className: "text-[#C89D4E] font-semibold text-sm",
                                 children: "● Online"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -339,12 +339,12 @@ function Sidebar() {
                         columnNumber: 9
                     }, this),
                     user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-[#24384A] rounded-lg p-3 border border-[#2C3D4E] flex items-center justify-between",
+                        className: "bg-[#19364E] rounded-lg p-3 border border-[#1E3A52] flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xs text-[#B9AD97]",
+                                        className: "text-xs text-[#A5B0BA]",
                                         children: "Sesión"
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -352,7 +352,7 @@ function Sidebar() {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm text-[#F1E9D8] font-medium capitalize",
+                                        className: "text-sm text-[#F7F6F3] font-medium capitalize",
                                         children: user.username
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -360,7 +360,7 @@ function Sidebar() {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xs text-[#96876E] capitalize",
+                                        className: "text-xs text-[#7C8C9A] capitalize",
                                         children: user.role
                                     }, void 0, false, {
                                         fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -376,7 +376,7 @@ function Sidebar() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: handleLogout,
                                 title: "Cerrar sesión",
-                                className: "text-[#96876E] hover:text-[#D98B78] transition-colors text-xl p-1",
+                                className: "text-[#7C8C9A] hover:text-[#D98B78] transition-colors text-xl p-1",
                                 children: "⏻"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/Sidebar.tsx",
@@ -459,7 +459,7 @@ function ProtectedRoute(param) {
     ]);
     if (isLoading || !user || forbidden) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen flex items-center justify-center bg-[#F6EFE0] text-gray-400",
+            className: "min-h-screen flex items-center justify-center bg-[#F7F6F3] text-gray-400",
             children: "Verificando sesión..."
         }, void 0, false, {
             fileName: "[project]/frontend/components/ProtectedRoute.tsx",
@@ -501,7 +501,7 @@ function SearchBar(param) {
         placeholder: "Buscar estudiante...",
         value: search,
         onChange: (e)=>setSearch(e.target.value),
-        className: "   w-full   bg-[#F6EFE0]   border   border-gray-800   rounded-xl   px-5   py-4   text-[#26313D]   outline-none   focus:border-[#14495C]   transition-colors   mb-6   "
+        className: " w-full bg-[#F7F6F3] border border-gray-800 rounded-xl px-5 py-4 text-[#0D2B45] outline-none focus:border-[#0D2B45] transition-colors mb-6 "
     }, void 0, false, {
         fileName: "[project]/frontend/components/SearchBar.tsx",
         lineNumber: 13,
@@ -537,7 +537,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 function getRisk(grade, attendance) {
-    if (grade < 60 || attendance < 80) return "Alto";
+    if (grade < 60 || attendance < 70) return "Alto";
     if (grade < 80 || attendance < 85) return "Medio";
     return "Bajo";
 }
@@ -607,7 +607,7 @@ function StudentTable(param) {
     const SortIcon = (param)=>{
         let { col } = param;
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-            className: "ml-1 text-xs ".concat(sortBy === col ? "text-[#14495C]" : "text-gray-600"),
+            className: "ml-1 text-xs ".concat(sortBy === col ? "text-[#0D2B45]" : "text-gray-600"),
             children: sortBy === col ? sortDir === "asc" ? "▲" : "▼" : "⇅"
         }, void 0, false, {
             fileName: "[project]/frontend/components/StudentTable.tsx",
@@ -624,7 +624,7 @@ function StudentTable(param) {
                     className: "bg-white border border-red-500/30 rounded-xl p-8 w-[380px] shadow-2xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "font-serif text-lg font-bold text-[#26313D] mb-2",
+                            className: "font-serif text-lg font-bold text-[#0D2B45] mb-2",
                             children: "Confirmar eliminación"
                         }, void 0, false, {
                             fileName: "[project]/frontend/components/StudentTable.tsx",
@@ -684,7 +684,7 @@ function StudentTable(param) {
                         className: "flex items-center gap-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "font-serif text-2xl font-bold text-[#26313D]",
+                                className: "font-serif text-2xl font-bold text-[#0D2B45]",
                                 children: "Estudiantes"
                             }, void 0, false, {
                                 fileName: "[project]/frontend/components/StudentTable.tsx",
@@ -736,12 +736,12 @@ function StudentTable(param) {
                     className: "w-full text-sm",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                            className: "bg-[#F1E8D6]",
+                            className: "bg-[#EBECEA]",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                 className: "text-left text-gray-400",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "p-4 cursor-pointer hover:text-[#14495C] transition-colors select-none",
+                                        className: "p-4 cursor-pointer hover:text-[#0D2B45] transition-colors select-none",
                                         onClick: ()=>handleSort("id"),
                                         children: [
                                             "ID ",
@@ -759,7 +759,7 @@ function StudentTable(param) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "cursor-pointer hover:text-[#14495C] transition-colors select-none",
+                                        className: "cursor-pointer hover:text-[#0D2B45] transition-colors select-none",
                                         onClick: ()=>handleSort("name"),
                                         children: [
                                             "Nombre ",
@@ -785,7 +785,7 @@ function StudentTable(param) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "cursor-pointer hover:text-[#14495C] transition-colors select-none",
+                                        className: "cursor-pointer hover:text-[#0D2B45] transition-colors select-none",
                                         onClick: ()=>handleSort("grade"),
                                         children: [
                                             "Nota ",
@@ -803,7 +803,7 @@ function StudentTable(param) {
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: "cursor-pointer hover:text-[#14495C] transition-colors select-none",
+                                        className: "cursor-pointer hover:text-[#0D2B45] transition-colors select-none",
                                         onClick: ()=>handleSort("attendance"),
                                         children: [
                                             "Asistencia ",
@@ -876,7 +876,7 @@ function StudentTable(param) {
                                 const status = getStatus(student.grade);
                                 var _student_subject;
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                    className: "border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors",
+                                    className: "border-t border-gray-800 hover:bg-[#EBECEA] transition-colors",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                             className: "p-4 text-gray-400",
@@ -887,7 +887,7 @@ function StudentTable(param) {
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "font-medium text-[#26313D]",
+                                            className: "font-medium text-[#0D2B45]",
                                             children: student.name
                                         }, void 0, false, {
                                             fileName: "[project]/frontend/components/StudentTable.tsx",
@@ -1175,7 +1175,7 @@ function AttendancePage() {
             "profesor_quimica"
         ],
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex min-h-screen bg-[#F6EFE0]",
+            className: "flex min-h-screen bg-[#F7F6F3]",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$Sidebar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/frontend/app/attendance/page.tsx",
@@ -1197,7 +1197,7 @@ function AttendancePage() {
                                     className: "mb-8",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                            className: "font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent",
+                                            className: "font-serif text-5xl font-black bg-gradient-to-r from-[#0D2B45] to-[#C89D4E] bg-clip-text text-transparent",
                                             children: [
                                                 "Asistencia",
                                                 subjectFilter ? " — ".concat(subjectFilter) : ""
@@ -1236,7 +1236,7 @@ function AttendancePage() {
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                    className: "text-3xl font-bold text-[#14495C] mt-1",
+                                                    className: "text-3xl font-bold text-[#0D2B45] mt-1",
                                                     children: [
                                                         avgAttendance,
                                                         "%"
@@ -1327,7 +1327,7 @@ function AttendancePage() {
                                             className: "flex flex-col md:flex-row gap-4 mb-6 items-start md:items-center justify-between",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                    className: "font-serif text-xl font-bold text-[#26313D]",
+                                                    className: "font-serif text-xl font-bold text-[#0D2B45]",
                                                     children: "Registro de Asistencia"
                                                 }, void 0, false, {
                                                     fileName: "[project]/frontend/app/attendance/page.tsx",
@@ -1342,7 +1342,7 @@ function AttendancePage() {
                                                             placeholder: "Buscar estudiante...",
                                                             value: search,
                                                             onChange: (e)=>setSearch(e.target.value),
-                                                            className: "bg-[#F6EFE0] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#26313D] outline-none focus:border-[#14495C] transition-colors"
+                                                            className: "bg-[#F7F6F3] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#0D2B45] outline-none focus:border-[#0D2B45] transition-colors"
                                                         }, void 0, false, {
                                                             fileName: "[project]/frontend/app/attendance/page.tsx",
                                                             lineNumber: 127,
@@ -1355,7 +1355,7 @@ function AttendancePage() {
                                                             "Bajo"
                                                         ].map((r)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                 onClick: ()=>setFilterRisk(r),
-                                                                className: "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ".concat(filterRisk === r ? "bg-[#14495C]/20 text-[#14495C] border border-[#14495C]/30" : "border border-gray-700 text-gray-400 hover:text-gray-200"),
+                                                                className: "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ".concat(filterRisk === r ? "bg-[#0D2B45]/20 text-[#0D2B45] border border-[#0D2B45]/30" : "border border-gray-700 text-gray-400 hover:text-gray-200"),
                                                                 children: r
                                                             }, r, false, {
                                                                 fileName: "[project]/frontend/app/attendance/page.tsx",
@@ -1380,7 +1380,7 @@ function AttendancePage() {
                                                 className: "w-full text-sm",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                                                        className: "bg-[#F1E8D6]",
+                                                        className: "bg-[#EBECEA]",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                             className: "text-left text-gray-400",
                                                             children: [
@@ -1445,10 +1445,10 @@ function AttendancePage() {
                                                             const risk = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$components$2f$StudentTable$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getRisk"])(s.grade, s.attendance);
                                                             var _s_subject;
                                                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                                className: "border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors",
+                                                                className: "border-t border-gray-800 hover:bg-[#EBECEA] transition-colors",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                        className: "p-4 font-medium text-[#26313D]",
+                                                                        className: "p-4 font-medium text-[#0D2B45]",
                                                                         children: s.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/frontend/app/attendance/page.tsx",

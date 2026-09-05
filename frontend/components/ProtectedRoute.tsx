@@ -30,7 +30,7 @@ export default function ProtectedRoute({ children, allowedRoles }: ProtectedRout
 
   if (isLoading || !user || forbidden) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F6EFE0] text-gray-400">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F6F3] text-gray-400">
         Verificando sesión...
       </div>
     );

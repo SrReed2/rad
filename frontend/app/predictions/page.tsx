@@ -54,14 +54,14 @@ export default function PredictionsPage() {
 
   return (
     <ProtectedRoute allowedRoles={["director"]}>
-    <div className="flex min-h-screen bg-[#F6EFE0]">
+    <div className="flex min-h-screen bg-[#F7F6F3]">
       <Sidebar />
       <div className="flex-1">
         <Navbar />
         <main className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#0D2B45] to-[#C89D4E] bg-clip-text text-transparent">
               Predicciones de Riesgo
             </h1>
             <p className="text-gray-400 mt-2">
@@ -101,7 +101,7 @@ export default function PredictionsPage() {
             <RiskChart />
 
             <div className="bg-white p-6 rounded-xl border border-gray-800">
-              <h3 className="font-serif text-lg font-bold text-[#26313D] mb-4">
+              <h3 className="font-serif text-lg font-bold text-[#0D2B45] mb-4">
                 Criterios de Clasificación
               </h3>
               <div className="space-y-4 text-sm">
@@ -138,12 +138,12 @@ export default function PredictionsPage() {
 
           {/* Tabla completa */}
           <div className="bg-white rounded-xl p-6 border border-gray-800">
-            <h2 className="font-serif text-xl font-bold text-[#26313D] mb-5">
+            <h2 className="font-serif text-xl font-bold text-[#0D2B45] mb-5">
               Listado por Nivel de Riesgo
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-[#F1E8D6]">
+                <thead className="bg-[#EBECEA]">
                   <tr className="text-left text-gray-400">
                     <th className="p-4">ID</th>
                     <th>Nombre</th>
@@ -160,10 +160,10 @@ export default function PredictionsPage() {
                     return (
                       <tr
                         key={s.id}
-                        className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
+                        className="border-t border-gray-800 hover:bg-[#EBECEA] transition-colors"
                       >
                         <td className="p-4 text-gray-400">{s.id}</td>
-                        <td className="font-medium text-[#26313D]">{s.name}</td>
+                        <td className="font-medium text-[#0D2B45]">{s.name}</td>
                         <td className="hidden md:table-cell text-gray-400">
                           {s.subject ?? "—"}
                         </td>

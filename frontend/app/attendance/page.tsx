@@ -77,14 +77,14 @@ export default function AttendancePage() {
     <ProtectedRoute
       allowedRoles={["director", "profesor_matematicas", "profesor_ingles", "profesor_quimica"]}
     >
-    <div className="flex min-h-screen bg-[#F6EFE0]">
+    <div className="flex min-h-screen bg-[#F7F6F3]">
       <Sidebar />
       <div className="flex-1">
         <Navbar />
         <main className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-black bg-gradient-to-r from-[#0D2B45] to-[#C89D4E] bg-clip-text text-transparent">
               Asistencia{subjectFilter ? ` — ${subjectFilter}` : ""}
             </h1>
             <p className="text-gray-400 mt-2">
@@ -98,7 +98,7 @@ export default function AttendancePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white p-5 rounded-xl border border-gray-800">
               <p className="text-gray-400 text-sm">Promedio General</p>
-              <h2 className="text-3xl font-bold text-[#14495C] mt-1">{avgAttendance}%</h2>
+              <h2 className="text-3xl font-bold text-[#0D2B45] mt-1">{avgAttendance}%</h2>
             </div>
             <div className="bg-white p-5 rounded-xl border border-green-500/20">
               <p className="text-gray-400 text-sm">Asistencia ≥ 90%</p>
@@ -118,7 +118,7 @@ export default function AttendancePage() {
           {/* Tabla de asistencia */}
           <div className="bg-white rounded-xl p-6 border border-gray-800">
             <div className="flex flex-col md:flex-row gap-4 mb-6 items-start md:items-center justify-between">
-              <h2 className="font-serif text-xl font-bold text-[#26313D]">
+              <h2 className="font-serif text-xl font-bold text-[#0D2B45]">
                 Registro de Asistencia
               </h2>
 
@@ -129,7 +129,7 @@ export default function AttendancePage() {
                   placeholder="Buscar estudiante..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="bg-[#F6EFE0] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#26313D] outline-none focus:border-[#14495C] transition-colors"
+                  className="bg-[#F7F6F3] border border-gray-700 rounded-lg px-4 py-2 text-sm text-[#0D2B45] outline-none focus:border-[#0D2B45] transition-colors"
                 />
 
                 {/* Filtro riesgo */}
@@ -139,7 +139,7 @@ export default function AttendancePage() {
                     onClick={() => setFilterRisk(r)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                       filterRisk === r
-                        ? "bg-[#14495C]/20 text-[#14495C] border border-[#14495C]/30"
+                        ? "bg-[#0D2B45]/20 text-[#0D2B45] border border-[#0D2B45]/30"
                         : "border border-gray-700 text-gray-400 hover:text-gray-200"
                     }`}
                   >
@@ -151,7 +151,7 @@ export default function AttendancePage() {
 
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-[#F1E8D6]">
+                <thead className="bg-[#EBECEA]">
                   <tr className="text-left text-gray-400">
                     <th className="p-4">Estudiante</th>
                     <th className="hidden md:table-cell">Materia</th>
@@ -172,9 +172,9 @@ export default function AttendancePage() {
                       return (
                         <tr
                           key={s.id}
-                          className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
+                          className="border-t border-gray-800 hover:bg-[#EBECEA] transition-colors"
                         >
-                          <td className="p-4 font-medium text-[#26313D]">{s.name}</td>
+                          <td className="p-4 font-medium text-[#0D2B45]">{s.name}</td>
                           <td className="hidden md:table-cell text-gray-400">
                             {s.subject ?? "—"}
                           </td>

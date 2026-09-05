@@ -13,7 +13,7 @@ interface StudentTableProps {
 }
 
 export function getRisk(grade: number, attendance: number): "Alto" | "Medio" | "Bajo" {
-  if (grade < 60 || attendance < 80) return "Alto";
+  if (grade < 60 || attendance < 70) return "Alto";
   if (grade < 80 || attendance < 85) return "Medio";
   return "Bajo";
 }
@@ -80,7 +80,7 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
   };
 
   const SortIcon = ({ col }: { col: keyof Student }) => (
-    <span className={`ml-1 text-xs ${sortBy === col ? "text-[#14495C]" : "text-gray-600"}`}>
+    <span className={`ml-1 text-xs ${sortBy === col ? "text-[#0D2B45]" : "text-gray-600"}`}>
       {sortBy === col ? (sortDir === "asc" ? "▲" : "▼") : "⇅"}
     </span>
   );
@@ -91,7 +91,7 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
       {confirmDeleteId !== null && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
           <div className="bg-white border border-red-500/30 rounded-xl p-8 w-[380px] shadow-2xl">
-            <h3 className="font-serif text-lg font-bold text-[#26313D] mb-2">Confirmar eliminación</h3>
+            <h3 className="font-serif text-lg font-bold text-[#0D2B45] mb-2">Confirmar eliminación</h3>
             <p className="text-gray-400 text-sm mb-6">
               ¿Estás seguro? Esta acción no se puede deshacer.
             </p>
@@ -115,7 +115,7 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
 
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-3">
-          <h2 className="font-serif text-2xl font-bold text-[#26313D]">Estudiantes</h2>
+          <h2 className="font-serif text-2xl font-bold text-[#0D2B45]">Estudiantes</h2>
           {readOnly && (
             <span className="text-[10px] uppercase tracking-widest text-gray-500 border border-gray-800 rounded-full px-2 py-1">
               Solo lectura
@@ -129,29 +129,29 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
-          <thead className="bg-[#F1E8D6]">
+          <thead className="bg-[#EBECEA]">
             <tr className="text-left text-gray-400">
               <th
-                className="p-4 cursor-pointer hover:text-[#14495C] transition-colors select-none"
+                className="p-4 cursor-pointer hover:text-[#0D2B45] transition-colors select-none"
                 onClick={() => handleSort("id")}
               >
                 ID <SortIcon col="id" />
               </th>
               <th
-                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
+                className="cursor-pointer hover:text-[#0D2B45] transition-colors select-none"
                 onClick={() => handleSort("name")}
               >
                 Nombre <SortIcon col="name" />
               </th>
               <th className="hidden md:table-cell">Materia</th>
               <th
-                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
+                className="cursor-pointer hover:text-[#0D2B45] transition-colors select-none"
                 onClick={() => handleSort("grade")}
               >
                 Nota <SortIcon col="grade" />
               </th>
               <th
-                className="cursor-pointer hover:text-[#14495C] transition-colors select-none"
+                className="cursor-pointer hover:text-[#0D2B45] transition-colors select-none"
                 onClick={() => handleSort("attendance")}
               >
                 Asistencia <SortIcon col="attendance" />
@@ -176,10 +176,10 @@ export default function StudentTable({ onEdit, readOnly = false, students: stude
                 return (
                   <tr
                     key={student.id}
-                    className="border-t border-gray-800 hover:bg-[#F1E8D6] transition-colors"
+                    className="border-t border-gray-800 hover:bg-[#EBECEA] transition-colors"
                   >
                     <td className="p-4 text-gray-400">{student.id}</td>
-                    <td className="font-medium text-[#26313D]">{student.name}</td>
+                    <td className="font-medium text-[#0D2B45]">{student.name}</td>
                     <td className="hidden md:table-cell text-gray-400">
                       {student.subject ?? "—"}
                     </td>

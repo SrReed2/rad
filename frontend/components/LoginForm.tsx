@@ -43,7 +43,7 @@ export default function LoginForm() {
       <div className="text-center mb-8">
         <div
           className="w-20 h-20 rounded-full mx-auto flex items-center justify-center overflow-hidden"
-          style={{ backgroundColor: "#F9F8F6" }}
+          style={{ backgroundColor: "#FFFFFF" }}
         >
           <Image
             src="/brand/sofia-icon.png"
@@ -54,7 +54,7 @@ export default function LoginForm() {
             className="w-20 h-20"
           />
         </div>
-        <h1 className="font-serif text-4xl font-bold text-[#1F2E3D] mt-4 tracking-tight">
+        <h1 className="font-serif text-4xl font-bold text-[#0D2B45] mt-4 tracking-tight">
           SOFÍA
         </h1>
         <p className="text-gray-400 text-sm mt-1 tracking-widest uppercase">
@@ -83,9 +83,9 @@ export default function LoginForm() {
           disabled={loading}
           className="
             w-full p-3 rounded-lg
-            bg-[#F6EFE0] text-[#26313D]
+            bg-[#F7F6F3] text-[#0D2B45]
             border border-gray-700
-            focus:border-[#14495C] focus:outline-none
+            focus:border-[#0D2B45] focus:outline-none
             transition-colors
             disabled:opacity-50
           "
@@ -106,9 +106,9 @@ export default function LoginForm() {
           disabled={loading}
           className="
             w-full p-3 rounded-lg
-            bg-[#F6EFE0] text-[#26313D]
+            bg-[#F7F6F3] text-[#0D2B45]
             border border-gray-700
-            focus:border-[#14495C] focus:outline-none
+            focus:border-[#0D2B45] focus:outline-none
             transition-colors
             disabled:opacity-50
           "
@@ -120,7 +120,7 @@ export default function LoginForm() {
         type="submit"
         disabled={loading}
         className="
-          w-full bg-[#14495C] hover:bg-[#0F3646]
+          w-full bg-[#0D2B45] hover:bg-[#0A2034]
           transition-colors text-white font-bold
           p-3 rounded-lg text-base
           disabled:opacity-50 disabled:cursor-not-allowed

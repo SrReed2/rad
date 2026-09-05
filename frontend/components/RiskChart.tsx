@@ -31,8 +31,8 @@ export default function RiskChart() {
     datasets: [
       {
         data: [counts.Bajo, counts.Medio, counts.Alto],
-        backgroundColor: ["#14495C", "#9C7A34", "#8B4130"],
-        borderColor: ["#F6EFE0", "#F6EFE0", "#F6EFE0"],
+        backgroundColor: ["#0D2B45", "#9C7A34", "#8B4130"],
+        borderColor: ["#F7F6F3", "#F7F6F3", "#F7F6F3"],
         borderWidth: 3,
       },
     ],
@@ -41,14 +41,14 @@ export default function RiskChart() {
   const options = {
     plugins: {
       legend: {
-        labels: { color: "#6B6152", font: { size: 12 } },
+        labels: { color: "#506577", font: { size: 12 } },
       },
     },
   };
 
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-800">
-      <h2 className="font-serif text-xl font-bold text-[#26313D] mb-4">
+      <h2 className="font-serif text-xl font-bold text-[#0D2B45] mb-4">
         Distribución de Riesgo
       </h2>
       <div className="max-w-xs mx-auto">

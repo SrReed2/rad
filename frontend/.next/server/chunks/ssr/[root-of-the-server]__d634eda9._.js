@@ -62,7 +62,7 @@ function LoginForm() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "w-20 h-20 rounded-full mx-auto flex items-center justify-center overflow-hidden",
                         style: {
-                            backgroundColor: "#F9F8F6"
+                            backgroundColor: "#FFFFFF"
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             src: "/brand/sofia-icon.png",
@@ -82,7 +82,7 @@ function LoginForm() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "font-serif text-4xl font-bold text-[#1F2E3D] mt-4 tracking-tight",
+                        className: "font-serif text-4xl font-bold text-[#0D2B45] mt-4 tracking-tight",
                         children: "SOFÍA"
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/LoginForm.tsx",
@@ -129,7 +129,7 @@ function LoginForm() {
                         onChange: (e)=>setUsername(e.target.value),
                         placeholder: "director",
                         disabled: loading,
-                        className: " w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D] border border-gray-700 focus:border-[#14495C] focus:outline-none transition-colors disabled:opacity-50 "
+                        className: " w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45] border border-gray-700 focus:border-[#0D2B45] focus:outline-none transition-colors disabled:opacity-50 "
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/LoginForm.tsx",
                         lineNumber: 77,
@@ -159,7 +159,7 @@ function LoginForm() {
                         onChange: (e)=>setPassword(e.target.value),
                         placeholder: "••••••••",
                         disabled: loading,
-                        className: " w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D] border border-gray-700 focus:border-[#14495C] focus:outline-none transition-colors disabled:opacity-50 "
+                        className: " w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45] border border-gray-700 focus:border-[#0D2B45] focus:outline-none transition-colors disabled:opacity-50 "
                     }, void 0, false, {
                         fileName: "[project]/frontend/components/LoginForm.tsx",
                         lineNumber: 100,
@@ -174,7 +174,7 @@ function LoginForm() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 type: "submit",
                 disabled: loading,
-                className: " w-full bg-[#14495C] hover:bg-[#0F3646] transition-colors text-white font-bold p-3 rounded-lg text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ",
+                className: " w-full bg-[#0D2B45] hover:bg-[#0A2034] transition-colors text-white font-bold p-3 rounded-lg text-base disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ",
                 children: loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {

@@ -17,15 +17,15 @@ export default function SearchBar({
       onChange={(e) => setSearch(e.target.value)}
       className="
       w-full
-      bg-[#F6EFE0]
+      bg-[#F7F6F3]
       border
       border-gray-800
       rounded-xl
       px-5
       py-4
-      text-[#26313D]
+      text-[#0D2B45]
       outline-none
-      focus:border-[#14495C]
+      focus:border-[#0D2B45]
       transition-colors
       mb-6
       "

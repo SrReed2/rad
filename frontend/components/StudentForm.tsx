@@ -99,7 +99,7 @@ export default function StudentForm({
   return (
     <div className="bg-white p-6 rounded-xl border border-gray-800">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="font-serif text-xl font-bold text-[#26313D]">
+        <h2 className="font-serif text-xl font-bold text-[#0D2B45]">
           {isEditing ? `Editando: ${editingStudent.name}` : "Registrar Estudiante"}
         </h2>
         {isEditing && (
@@ -132,9 +132,9 @@ export default function StudentForm({
             onChange={handleChange}
             placeholder="Ej. María López"
             className={`
-              w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D]
+              w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45]
               border transition-colors outline-none
-              ${errors.name ? "border-red-500" : "border-gray-700 focus:border-[#14495C]"}
+              ${errors.name ? "border-red-500" : "border-gray-700 focus:border-[#0D2B45]"}
             `}
           />
           {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
@@ -154,9 +154,9 @@ export default function StudentForm({
             min={0}
             max={100}
             className={`
-              w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D]
+              w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45]
               border transition-colors outline-none
-              ${errors.grade ? "border-red-500" : "border-gray-700 focus:border-[#14495C]"}
+              ${errors.grade ? "border-red-500" : "border-gray-700 focus:border-[#0D2B45]"}
             `}
           />
           {errors.grade && <p className="text-red-400 text-xs mt-1">{errors.grade}</p>}
@@ -176,9 +176,9 @@ export default function StudentForm({
             min={0}
             max={100}
             className={`
-              w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D]
+              w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45]
               border transition-colors outline-none
-              ${errors.attendance ? "border-red-500" : "border-gray-700 focus:border-[#14495C]"}
+              ${errors.attendance ? "border-red-500" : "border-gray-700 focus:border-[#0D2B45]"}
             `}
           />
           {errors.attendance && (
@@ -198,8 +198,8 @@ export default function StudentForm({
             onChange={handleChange}
             placeholder="Ej. Matemáticas"
             className="
-              w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D]
-              border border-gray-700 focus:border-[#14495C] outline-none transition-colors
+              w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45]
+              border border-gray-700 focus:border-[#0D2B45] outline-none transition-colors
             "
           />
         </div>
@@ -216,8 +216,8 @@ export default function StudentForm({
             onChange={handleChange}
             placeholder="Ej. 2024-I"
             className="
-              w-full p-3 rounded-lg bg-[#F6EFE0] text-[#26313D]
-              border border-gray-700 focus:border-[#14495C] outline-none transition-colors
+              w-full p-3 rounded-lg bg-[#F7F6F3] text-[#0D2B45]
+              border border-gray-700 focus:border-[#0D2B45] outline-none transition-colors
             "
           />
         </div>
@@ -228,7 +228,7 @@ export default function StudentForm({
           type="button"
           onClick={handleSubmit}
           className="
-            bg-[#14495C] hover:bg-[#0F3646] transition-colors
+            bg-[#0D2B45] hover:bg-[#0A2034] transition-colors
             text-white font-semibold px-8 py-3 rounded-lg text-sm
           "
         >

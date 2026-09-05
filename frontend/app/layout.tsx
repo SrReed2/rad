@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={`${geist.className} ${fraunces.variable} bg-[#F6EFE0] text-[#26313D]`}>
+      <body className={`${geist.className} ${fraunces.variable} bg-[#F7F6F3] text-[#0D2B45]`}>
         <AuthProvider>
           <StudentsProvider>
             <SofiaPanelProvider>

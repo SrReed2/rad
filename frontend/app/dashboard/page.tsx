@@ -33,7 +33,7 @@ function DirectorDashboard() {
           {/* HEADER */}
 
           <div className="mb-8">
-            <h1 className="font-serif text-5xl font-bold bg-gradient-to-r from-[#14495C] to-[#B78A4D] bg-clip-text text-transparent">
+            <h1 className="font-serif text-5xl font-bold bg-gradient-to-r from-[#0D2B45] to-[#C89D4E] bg-clip-text text-transparent">
               Dashboard Académico
             </h1>
 
@@ -62,7 +62,7 @@ function DirectorDashboard() {
 
           <div className="bg-white rounded-xl border border-gray-800 p-6 mb-8 shadow-lg">
 
-            <h2 className="font-serif text-xl font-semibold text-[#26313D] mb-3">
+            <h2 className="font-serif text-xl font-semibold text-[#0D2B45] mb-3">
               Resumen General
             </h2>
 
@@ -153,7 +153,7 @@ export default function DashboardPage() {
     <ProtectedRoute
       allowedRoles={["director", "profesor_matematicas", "profesor_ingles", "profesor_quimica"]}
     >
-      <div className="flex min-h-screen bg-[#F6EFE0]">
+      <div className="flex min-h-screen bg-[#F7F6F3]">
         <Sidebar />
 
         <div className="flex-1">

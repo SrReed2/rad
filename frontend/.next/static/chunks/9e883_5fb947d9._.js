@@ -3,7 +3,7 @@
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ const mergeClasses = function() {
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -42,7 +42,7 @@ const toKebabCase = (string)=>string.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLo
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -58,7 +58,7 @@ const toCamelCase = (string)=>string.replace(/^([A-Z])|[\s-_]+(\w)/g, (match, p1
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -79,7 +79,7 @@ const toPascalCase = (string)=>{
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -105,7 +105,7 @@ var defaultAttributes = {
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -134,7 +134,7 @@ __turbopack_context__.s([
     ()=>useLucideContext
 ]);
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -176,7 +176,7 @@ __turbopack_context__.s([
     ()=>Icon
 ]);
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -227,7 +227,7 @@ const Icon = (0, __TURBOPACK__imported__module__$5b$project$5d2f$frontend$2f$nod
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
@@ -265,7 +265,7 @@ const createLucideIcon = (iconName, iconNode)=>{
 "use strict";
 
 /**
- * @license lucide-react v1.34.0 - ISC
+ * @license lucide-react v1.41.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
