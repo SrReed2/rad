@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import StudentForm from "../../components/StudentForm";
 import StudentTable from "../../components/StudentTable";
 import { Student, useStudents } from "../../context/StudentsContext";
@@ -10,10 +10,16 @@ export default function StudentsPageClient() {
   const { students } = useStudents();
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
 
-  const totalStudents = students.length;
-  const highRisk = students.filter((s) => getRisk(s.grade, s.attendance) === "Alto").length;
-  const approved = students.filter((s) => s.grade >= 70).length;
-  const approvalRate = totalStudents > 0 ? Math.round((approved / totalStudents) * 100) : 0;
+  const { totalStudents, highRisk, approvalRate } = useMemo(() => {
+    const total = students.length;
+    const high = students.filter((s) => getRisk(s.grade, s.attendance) === "Alto").length;
+    const approved = students.filter((s) => s.grade >= 60).length;
+    return {
+      totalStudents: total,
+      highRisk: high,
+      approvalRate: total > 0 ? Math.round((approved / total) * 100) : 0,
+    };
+  }, [students]);
 
   return (
     <>

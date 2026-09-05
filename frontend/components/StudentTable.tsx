@@ -6,16 +6,18 @@ import { useStudents, Student } from "../context/StudentsContext";
 
 interface StudentTableProps {
   onEdit?: (student: Student) => void;
+  /** Vista de solo lectura — oculta la columna de Acciones (editar/eliminar). Úsalo en el Dashboard general. */
+  readOnly?: boolean;
 }
 
 export function getRisk(grade: number, attendance: number): "Alto" | "Medio" | "Bajo" {
-  if (grade < 65 || attendance < 70) return "Alto";
+  if (grade < 60 || attendance < 80) return "Alto";
   if (grade < 80 || attendance < 85) return "Medio";
   return "Bajo";
 }
 
 export function getStatus(grade: number): "Aprobado" | "Reprobado" {
-  return grade >= 70 ? "Aprobado" : "Reprobado";
+  return grade >= 60 ? "Aprobado" : "Reprobado";
 }
 
 const RISK_STYLES = {
@@ -29,7 +31,7 @@ const STATUS_STYLES = {
   Reprobado: "bg-red-500/20 text-red-400",
 };
 
-export default function StudentTable({ onEdit }: StudentTableProps) {
+export default function StudentTable({ onEdit, readOnly = false }: StudentTableProps) {
   const { students, deleteStudent } = useStudents();
   const [search, setSearch] = useState("");
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
@@ -102,7 +104,14 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
       )}
 
       <div className="flex justify-between items-center mb-6">
-        <h2 className="font-serif text-2xl font-bold text-[#26313D]">Estudiantes</h2>
+        <div className="flex items-center gap-3">
+          <h2 className="font-serif text-2xl font-bold text-[#26313D]">Estudiantes</h2>
+          {readOnly && (
+            <span className="text-[10px] uppercase tracking-widest text-gray-500 border border-gray-800 rounded-full px-2 py-1">
+              Solo lectura
+            </span>
+          )}
+        </div>
         <span className="text-gray-400 text-sm">{filtered.length} registros</span>
       </div>
 
@@ -139,15 +148,15 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
               </th>
               <th>Estado</th>
               <th>Riesgo</th>
-              <th>Acciones</th>
+              {!readOnly && <th>Acciones</th>}
             </tr>
           </thead>
 
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={8} className="text-center py-12 text-gray-500">
-                  No se encontraron estudiantes para "{search}".
+                <td colSpan={readOnly ? 7 : 8} className="text-center py-12 text-gray-500">
+                  No se encontraron estudiantes para &quot;{search}&quot;.
                 </td>
               </tr>
             ) : (
@@ -176,22 +185,24 @@ export default function StudentTable({ onEdit }: StudentTableProps) {
                         {risk}
                       </span>
                     </td>
-                    <td>
-                      <div className="flex gap-2 py-2">
-                        <button
-                          onClick={() => onEdit?.(student)}
-                          className="px-3 py-1 rounded bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 text-xs transition-colors"
-                        >
-                          Editar
-                        </button>
-                        <button
-                          onClick={() => confirmDelete(student.id)}
-                          className="px-3 py-1 rounded bg-red-500/20 text-red-400 hover:bg-red-500/30 text-xs transition-colors"
-                        >
-                          Eliminar
-                        </button>
-                      </div>
-                    </td>
+                    {!readOnly && (
+                      <td>
+                        <div className="flex gap-2 py-2">
+                          <button
+                            onClick={() => onEdit?.(student)}
+                            className="px-3 py-1 rounded bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30 text-xs transition-colors"
+                          >
+                            Editar
+                          </button>
+                          <button
+                            onClick={() => confirmDelete(student.id)}
+                            className="px-3 py-1 rounded bg-red-500/20 text-red-400 hover:bg-red-500/30 text-xs transition-colors"
+                          >
+                            Eliminar
+                          </button>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                 );
               })

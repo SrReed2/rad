@@ -4,7 +4,7 @@ import { AuthProvider } from "../context/AuthContext";
 import { StudentsProvider } from "../context/StudentsContext";
 
 export const metadata: Metadata = {
-  title: "RAD - Risk Analysis Dashboard",
+  title: "SOFÍA - Panel de Análisis Académico",
   description: "Plataforma de análisis de riesgo académico estudiantil",
 };
 

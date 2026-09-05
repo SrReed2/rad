@@ -24,18 +24,26 @@ export default function Sidebar() {
 
   return (
     <aside className="w-72 min-h-screen bg-[#1F2E3D] border-r border-[#2C3D4E] flex flex-col">
-      {/* Logo */}
-      <div className="p-8 border-b border-[#2C3D4E]">
-        <h1 className="font-serif text-4xl font-bold tracking-tight bg-gradient-to-r from-[#7FB8C9] to-[#D9BD85] bg-clip-text text-transparent">
-          RAD
-        </h1>
-        <p className="text-xs text-[#96876E] mt-1 tracking-widest uppercase">
-          Risk Analysis Dashboard
-        </p>
+      {/* Logo — esquina superior izquierda, fondo exacto de la imagen para que se integre sin bordes */}
+      <div
+        className="flex items-center gap-3 pl-3 pr-5 py-3 border-b border-[#2C3D4E]"
+        style={{ backgroundColor: "#F9F8F6" }}
+      >
+        <img
+          src="/brand/sofia-icon.png"
+          alt="SOFÍA"
+          className="w-11 h-11 rounded-full shrink-0"
+        />
+        <div className="leading-tight">
+          <p className="font-serif text-xl font-bold text-[#1F2E3D]">SOFÍA</p>
+          <p className="text-[9px] text-[#6B6152] tracking-widest uppercase">
+            Panel Académico
+          </p>
+        </div>
       </div>
 
       {/* Navegación */}
-      <nav className="flex flex-col gap-1 px-4 mt-6">
+      <nav className="flex flex-col gap-1 px-5 mt-5">
         {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.href;
           return (
@@ -43,7 +51,7 @@ export default function Sidebar() {
               key={item.href}
               href={item.href}
               className={`
-                flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium
+                flex items-center gap-3 px-5 py-3.5 rounded-lg text-sm font-medium
                 transition-all duration-200
                 ${
                   isActive

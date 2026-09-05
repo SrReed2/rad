@@ -1,51 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import AttendanceChart from "../../components/AttendanceChart";
 import { useStudents } from "../../context/StudentsContext";
 import { getRisk } from "../../components/StudentTable";
 
-const MONTHS = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+const RISK_BADGE: Record<string, string> = {
+  Bajo: "bg-cyan-500/20 text-cyan-400",
+  Medio: "bg-yellow-500/20 text-yellow-400",
+  Alto: "bg-red-500/20 text-red-400",
+};
+
+const getAttBar = (val: number) => {
+  const color = val >= 85 ? "bg-cyan-500" : val >= 80 ? "bg-yellow-500" : "bg-red-500";
+  return (
+    <div className="flex items-center gap-2">
+      <div className="flex-1 bg-gray-800 rounded-full h-2">
+        <div className={`${color} h-2 rounded-full`} style={{ width: `${val}%` }} />
+      </div>
+      <span className="text-xs font-mono w-10 text-right">{val}%</span>
+    </div>
+  );
+};
 
 export default function AttendancePage() {
   const { students } = useStudents();
   const [search, setSearch] = useState("");
   const [filterRisk, setFilterRisk] = useState<"Todos" | "Alto" | "Medio" | "Bajo">("Todos");
 
-  const filtered = students.filter((s) => {
-    const matchSearch = s.name.toLowerCase().includes(search.toLowerCase());
-    const risk = getRisk(s.grade, s.attendance);
-    const matchRisk = filterRisk === "Todos" || risk === filterRisk;
-    return matchSearch && matchRisk;
-  });
+  // Filtrado + orden cronológico (por id de registro) — se recalcula solo si cambian sus dependencias.
+  const filtered = useMemo(() => {
+    return students
+      .filter((s) => {
+        const matchSearch = s.name.toLowerCase().includes(search.toLowerCase());
+        const risk = getRisk(s.grade, s.attendance);
+        const matchRisk = filterRisk === "Todos" || risk === filterRisk;
+        return matchSearch && matchRisk;
+      })
+      .sort((a, b) => a.id - b.id);
+  }, [students, search, filterRisk]);
 
-  const avgAttendance =
-    students.length > 0
-      ? Math.round(students.reduce((acc, s) => acc + s.attendance, 0) / students.length)
-      : 0;
-
-  const critical = students.filter((s) => s.attendance < 70).length;
-  const good = students.filter((s) => s.attendance >= 90).length;
-
-  const getAttBar = (val: number) => {
-    const color = val >= 85 ? "bg-cyan-500" : val >= 70 ? "bg-yellow-500" : "bg-red-500";
-    return (
-      <div className="flex items-center gap-2">
-        <div className="flex-1 bg-gray-800 rounded-full h-2">
-          <div className={`${color} h-2 rounded-full`} style={{ width: `${val}%` }} />
-        </div>
-        <span className="text-xs font-mono w-10 text-right">{val}%</span>
-      </div>
-    );
-  };
-
-  const RISK_BADGE: Record<string, string> = {
-    Bajo: "bg-cyan-500/20 text-cyan-400",
-    Medio: "bg-yellow-500/20 text-yellow-400",
-    Alto: "bg-red-500/20 text-red-400",
-  };
+  const { avgAttendance, critical, good } = useMemo(() => {
+    const avg =
+      students.length > 0
+        ? Math.round(students.reduce((acc, s) => acc + s.attendance, 0) / students.length)
+        : 0;
+    return {
+      avgAttendance: avg,
+      critical: students.filter((s) => s.attendance < 80).length,
+      good: students.filter((s) => s.attendance >= 90).length,
+    };
+  }, [students]);
 
   return (
     <div className="flex min-h-screen bg-[#F6EFE0]">
@@ -74,7 +81,7 @@ export default function AttendancePage() {
               <h2 className="text-3xl font-bold text-green-400 mt-1">{good}</h2>
             </div>
             <div className="bg-white p-5 rounded-xl border border-red-500/20">
-              <p className="text-gray-400 text-sm">Asistencia Crítica &lt; 70%</p>
+              <p className="text-gray-400 text-sm">Asistencia Crítica &lt; 80%</p>
               <h2 className="text-3xl font-bold text-red-400 mt-1">{critical}</h2>
             </div>
           </div>
@@ -126,20 +133,18 @@ export default function AttendancePage() {
                     <th className="hidden md:table-cell">Materia</th>
                     <th>Asistencia</th>
                     <th className="hidden lg:table-cell">Riesgo</th>
-                    <th className="hidden xl:table-cell">Mes actual</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filtered.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="text-center py-12 text-gray-500">
+                      <td colSpan={4} className="text-center py-12 text-gray-500">
                         Sin resultados para los filtros actuales.
                       </td>
                     </tr>
                   ) : (
                     filtered.map((s) => {
                       const risk = getRisk(s.grade, s.attendance);
-                      const currentMonth = MONTHS[new Date().getMonth()];
                       return (
                         <tr
                           key={s.id}
@@ -154,9 +159,6 @@ export default function AttendancePage() {
                             <span className={`${RISK_BADGE[risk]} px-3 py-1 rounded-full text-xs font-medium`}>
                               {risk}
                             </span>
-                          </td>
-                          <td className="hidden xl:table-cell text-gray-400 text-xs">
-                            {currentMonth}: {s.attendance}%
                           </td>
                         </tr>
                       );
